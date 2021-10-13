@@ -1,0 +1,80 @@
+﻿@model Deneme.Models.Company
+@{
+    Layout = null;
+}
+
+    @using (Html.BeginForm("AddOrEdit_COP", "CompanyOperations", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+    {
+        @Html.HiddenFor(model => model.CompanyId)
+        <div class="block push-bit">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label class="control-label " for="CompanyTitle"> @Deneme.Resource.CompanyTitle *</label>
+                        @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "required form-control" } })
+                        @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label " for="TaxOffice"> @Deneme.Resource.TaxOffice *</label>
+                        @Html.EditorFor(model => model.TaxOffice, new { htmlAttributes = new { @class = "required form-control" } })
+                        @Html.ValidationMessageFor(model => model.TaxOffice, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label " for="TaxNumber"> @Deneme.Resource.TaxNumber *</label>
+                        @Html.EditorFor(model => model.TaxNo_TcNo, new { htmlAttributes = new { @class = "required form-control" } })
+                        @Html.ValidationMessageFor(model => model.TaxNo_TcNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label " for="PhoneNumber"> @Deneme.Resource.PhoneNumber *</label>
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "required form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label " for="FaxNumber"> @Deneme.Resource.FaxNumber *</label>
+                        @Html.EditorFor(model => model.FaxNumber, new { htmlAttributes = new { @class = "required form-control" } })
+                        @Html.ValidationMessageFor(model => model.FaxNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label " for="Country"> @Deneme.Resource.Country *</label>
+                        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "required form-control" } })
+                        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label " for="City"> @Deneme.Resource.City *</label>
+                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "required form-control" } })
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label " for="State"> @Deneme.Resource.State *</label>
+                        @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "required form-control" } })
+                        @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label class="control-label " for="Address"> @Deneme.Resource.Address *</label>
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "required form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group text-center m-t-15 ">
+                    <button class="btn btn-danger btn-block text-uppercase waves-effect waves-light"
+                            type="submit">
+                        @Deneme.Resource.Save
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    }

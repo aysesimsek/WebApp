@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" lang="tr" />
+    <title>MUTABAKATCIM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <title>Mutabakatcım - 404</title>
+
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+    <ul class="m-t-10 ">
+        <li class="list-inline-item dropdown notification-list">
+            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+               aria-haspopup="false" aria-expanded="false">
+                <i class="fa fa-language fa-2x"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown text-md-center" aria-labelledby="Preview">
+                <!-- item-->
+
+                @foreach (var i in Deneme.SiteLanguages.AvailableLanguages)
+                {
+                    <div>
+                        <span>
+                            @Html.ActionLink(i.LangFullName, "ChangeLanguage", "SiteUser", new { lang = i.LangCultureName }, null)
+                        </span>
+                    </div>
+                }
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper-page">
+        <div class="ex-page-content text-center">
+            <div class="text-error"><span class="text-primary">4</span><i class="ti-face-sad text-pink"></i><span class="text-info">3</span></div>
+            <h2 class="text-white">@Deneme.Resource.Http403</h2><br>
+            <p class="text-muted">@Deneme.Resource.Http403Explanation</p>
+            @*<p class="text-muted">Use the navigation above or the button below to get back and track.</p>
+        <br>*@
+            <a class="btn btn-success waves-effect waves-light" href="@Url.Action("Index", "Home")"> @Deneme.Resource.BackToHome</a>
+
+        </div>
+    </div>
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/waves.js"></script>
+    <script src="~/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/jquery.core.js"></script>
+    <script src="~/assets/js/jquery.app.js"></script>
+</body>
+</html>

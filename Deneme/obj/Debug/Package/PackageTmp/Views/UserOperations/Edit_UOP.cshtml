@@ -1,0 +1,55 @@
+﻿
+@model Deneme.Models.SiteUser
+@{
+    /**/
+
+    /**/
+
+    Layout = null;
+}
+
+@using (Html.BeginForm("Edit_UOP", "UserOperations", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.ID)
+<div class="form-horizontal">
+    <div class="login-title text-center alert-success">
+        <h3> <strong>@Deneme.Resource.Fill </strong></h3>
+    </div>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <div class="col-xs-12">
+
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control input-lg", @placeholder = Deneme.Resource.Email } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+
+            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control input-lg", @placeholder = Deneme.Resource.Username } })
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-12">
+
+            @Html.HiddenFor(model => model.ActivationLink)
+            @Html.HiddenFor(model => model.IsValid)
+            @Html.HiddenFor(model => model.Password)
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-12 text-center">
+            <input type="submit" value="@Deneme.Resource.Save" class="btn btn-default btn-primary" />
+        </div>
+    </div>
+</div>
+
+}

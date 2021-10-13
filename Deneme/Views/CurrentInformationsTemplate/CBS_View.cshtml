@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.Title = "Cari Bilgiler Şablonu";
+}
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="btn-group pull-right">
+                    <ol class="breadcrumb hide-phone p-0 m-0">
+                        <li class="breadcrumb-item"><a href="#">Mutabakatcim</a></li>
+                        <li class="breadcrumb-item"><a href="#">@Deneme.Resource.TemplateSettings</a></li>
+                        <li class="breadcrumb-item active">@Deneme.Resource.CurrentInformationTemplate</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <a class="btn btn-success" style="margin-bottom:10px;" onclick="PopupForm('@Url.Action("AddOrEdit_CBS","CurrentInformationsTemplate")')"><i class="fa fa-plus"></i> @Deneme.Resource.AddNew</a>
+    <table id="BillTemplate" class="display nowrap table table-striped table-bordered" style="width:100%;">
+        <thead>
+            <tr>
+
+                <th data-priority="2">@Deneme.Resource.TemplateName</th>
+                <th data-priority="3">@Deneme.Resource.StartLine</th>
+                <th>@Deneme.Resource.CurrentCode</th>
+                <th>@Deneme.Resource.CurrentName</th>
+                <th>@Deneme.Resource.CurrentType</th>
+                <th>@Deneme.Resource.TaxOffice</th>
+                <th>@Deneme.Resource.TaxNumber</th>
+                <th>@Deneme.Resource.IdentificationNumber</th>
+                <th>@Deneme.Resource.Email1</th>
+                <th>@Deneme.Resource.Email2</th>
+                <th>@Deneme.Resource.CurrentState</th>
+                <th>@Deneme.Resource.PhoneNumber</th>
+                <th>@Deneme.Resource.Address</th>
+                <th>@Deneme.Resource.ExchangeType</th>
+                <th data-priority="4">@Deneme.Resource.TemplateCreationDate</th>
+                <th data-priority="1"></th>
+            </tr>
+        </thead>
+    </table>
+
+
+    @section scripts{
+
+
+        <script>
+        var Popup, dataTable;
+        $(document).ready(function () {
+
+            dataTable = $("#BillTemplate").DataTable({
+                responsive: {
+                    details: {
+                        renderer: function (api, rowIdx, columns) {
+                            var data = $.map(columns, function (col, i) {
+                                return col.hidden ?
+                                    '<tr data-dt-row="' + col.rowIndex + '" data-dt-column="' + col.columnIndex + '">' +
+                                    '<td>' + col.title + ':' + ' </td> ' +
+                                    '<td>' + col.data + ' </td>' +
+                                    '</tr>' :
+                                    '';
+                            }).join('');
+
+                            return data ?
+                                $('<table/>').append(data) :
+                                false;
+                        }
+                    }
+                },
+                "ajax": {
+                    "url": "/CurrentInformationsTemplate/CBS",
+                    "type": "GET",
+                    "datatype": "json",
+                    "style":"margin-left:50px"
+                },
+                "columns": [
+
+                    { "data": "ŞablonAdı" },
+                    { "data": "BaşlangıçSatırı" },
+                    { "data": "CariKodu" },
+                    { "data": "CariAdı" },
+                    { "data": "CariTipi" },
+                    { "data": "VergiDairesi" },
+                    { "data": "VergiNo" },
+                    { "data": "TcKimlikNo" },
+                    { "data": "Email1" },
+                    { "data": "Email2" },
+                    { "data": "Cariİl" },
+                    { "data": "Telefon" },
+                    { "data": "Adres" },
+                    { "data": "DövizTipi" },
+                    { "data": "OluşturmaTarihi" },
+                    {"data":"ŞablonId" , "render" : function (data) {
+                        return "<a class='btn btn-default btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit_CBS", "CurrentInformationsTemplate")/" + data + "')><i class='fa fa-pencil'></i> @Deneme.Resource.Edit</a><a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete("+data+")><i class='fa fa-trash'></i> @Deneme.Resource.Delete</a>";
+                    },
+                        "orderable": false,
+                        "searchable":false,
+                        "width":"150px"
+                    }
+
+                ],
+                "language": {
+
+                                "info": "@Deneme.Resource.Info",
+                    "infoEmpty": "@Deneme.Resource.InfoEmpty",
+                    "infoFiltered": "@Deneme.Resource.InfoFiltered",
+                    "lengthMenu": "@Deneme.Resource.LengthMenu",
+                    "loadingRecords": "@Deneme.Resource.LoadingRecords",
+                    "zeroRecords": "@Deneme.Resource.ZeroRecords",
+                    "search": "@Deneme.Resource.Search",
+                    "emptyTable": "@Deneme.Resource.EmptyTable1 <b>@Deneme.Resource.AddNew</b>  @Deneme.Resource.EmptyTable2",
+                    "paginate": {
+
+                        "next": "@Deneme.Resource.Next",
+                        "previous": "@Deneme.Resource.Previous"
+                    },
+                }
+
+
+            });
+        });
+
+
+
+        function PopupForm(url) {
+            var formDiv = $('<div/>');
+            $.get(url)
+            .done(function (response) {
+                formDiv.html(response);
+
+                Popup = formDiv.dialog({
+                    show: {
+                        effect: "blind",
+                        duration: 600
+                    },
+                    hide: {
+                        effect: "blind",
+                        duration: 600
+                    },
+                    modal: true,
+                    responsive: true,
+                    autoOpen: true,
+                    resizable: true,
+                    title: '@Deneme.Resource.CurrentInformationTemplate',
+                    height: 420,
+                    width: 1200,
+                    close: function () {
+                        Popup.dialog('destroy').remove();
+                    }
+                });
+            });
+        }
+
+        function SubmitForm(form) {
+            $.validator.unobtrusive.parse(form);
+            if($(form).valid()){
+                $.ajax({
+                    type : "POST",
+                    url : form.action,
+                    data : $(form).serialize(),
+                    success : function (data) {
+                        if(data.success)
+                        {
+                            Popup.dialog('close');
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message,{
+                                globalPosition :"top center",
+                                className : "success"
+                            })
+
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+
+        function Delete(id) {
+            if(confirm('@Deneme.Resource.DeleteConfirmation'))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete_CBS", "CurrentInformationsTemplate")/' + id,
+                    success: function (data) {
+                        if (data.success)
+                        {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+
+                });
+            }
+            }
+
+        </script>
+    }
+</body>

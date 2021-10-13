@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Show_FAEY";
+}
+<body onload="Show()">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="btn-group pull-right">
+                    <ol class="breadcrumb hide-phone p-0 m-0">
+                        <li class="breadcrumb-item"><a href="#">Mutabakatcim</a></li>
+                        <li class="breadcrumb-item"><a href="@Url.Action("BaBsMY_View", "Reconciliation")">@Deneme.Resource.Reconciliation</a></li>
+                        <li class="breadcrumb-item"><a href="@Url.Action("BaBsExcel_View", "BaBsReconciliation")">Excelden Mutabakat Oluştur</a></li>
+                        <li class="breadcrumb-item active">@Deneme.Resource.Show</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    @*<a class="btn btn-success" style="margin-bottom:10px;" onclick="PopupForm('@Url.Action("Show_FAEY","Excel")')"><i class="fa fa-plus"></i> Add New</a>*@
+
+    <table id="BillTemplate" class="display nowrap table table-striped table-bordered" style="width:100%;">
+        <thead>
+            <tr>
+                <th>@Deneme.Resource.CurrentCode</th>
+                <th>@Deneme.Resource.CurrentName</th>
+                <th>@Deneme.Resource.IdentificationNumber</th>
+                <th>@Deneme.Resource.TaxNumber</th>
+                <th>@Deneme.Resource.VatExcluded</th>
+                <th>@Deneme.Resource.DocumentNumber</th>
+
+            </tr>
+        </thead>
+    </table>
+
+    @section scripts{
+        <script>
+
+            var Popup, dataTable;
+            window.onload = function Show() {
+                dataTable = $("#BillTemplate").DataTable({
+                    responsive: {
+                        details: {
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    return col.hidden ?
+                                        '<tr data-dt-row="' + col.rowIndex + '" data-dt-column="' + col.columnIndex + '">' +
+                                        '<td>' + col.title + ':' + ' </td> ' +
+                                        '<td>' + col.data + ' </td>' +
+                                        '</tr>' :
+                                        '';
+                                }).join('');
+
+                                return data ?
+                                    $('<table/>').append(data) :
+                                    false;
+                            }
+                        }
+                    },
+                "ajax": {
+                    "url": "/BaBsReconciliation/Show_BaBsExcelView/"+@ViewBag.FaturaId,
+                    "type": "GET",
+                    "datatype": "json",
+                    "style":"margin-left:50px"
+                },
+                "columns": [
+                    { "data": "CariKodu" },
+                    { "data": "CariAdı" },
+                    { "data": "TcKimlikNo" },
+                    { "data": "VergiNo" },
+                    { "data": "KdvHariçTutar" },
+                    { "data": "BelgeSayısı" },
+                ],
+                "language": {
+
+                     "info": "@Deneme.Resource.Info",
+                    "infoEmpty": "@Deneme.Resource.InfoEmpty",
+                    "infoFiltered": "@Deneme.Resource.InfoFiltered",
+                    "lengthMenu": "@Deneme.Resource.LengthMenu",
+                    "loadingRecords": "@Deneme.Resource.LoadingRecords",
+                    "zeroRecords": "@Deneme.Resource.ZeroRecords",
+                    "search": "@Deneme.Resource.Search",
+                    "emptyTable": "@Deneme.Resource.EmptyTable",
+                    "paginate": {
+
+                        "next": "@Deneme.Resource.Next",
+                        "previous": "@Deneme.Resource.Previous"
+                    },
+                }
+            });
+            }
+
+        </script>
+    }
+    <br /><br />
+</body>

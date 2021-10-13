@@ -1,0 +1,223 @@
+﻿@model Deneme.Models.Registration
+@{
+    ViewBag.Title = Deneme.Resource.Register;
+    Layout = null;
+
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" lang="tr" />
+    <title>MUTABAKATCIM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/assets/js/modernizr.min.js"></script>
+
+</head>
+
+
+<body>
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+    <ul class="m-t-10">
+        <li class="list-inline-item dropdown notification-list">
+            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+               aria-haspopup="false" aria-expanded="false">
+                <i class="fa fa-language fa-2x"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown text-md-center" aria-labelledby="Preview">
+                <!-- item-->
+
+                @foreach (var i in Deneme.SiteLanguages.AvailableLanguages)
+                {
+                    <div>
+                        <span>
+                            @Html.ActionLink(i.LangFullName, "ChangeLanguage", "SiteUser", new { lang = i.LangCultureName }, null)
+                        </span>
+                    </div>
+                }
+            </div>
+        </li>
+    </ul>
+    @*<div class="wrapper">*@
+
+    <div class="container-fluid">
+
+        <!-- Form row -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-box  m-t-15">
+
+                    @if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+                    {
+                        if (ViewBag.Message != null)
+                        {
+                            <h4 class="m-t-0 header-title">
+                                <a href="index.html" class="logo">
+                                    <img src="~/assets/images/logo.png" alt="" height="40" class="logo-sm">
+                                </a><b>MUTABAKATCIM</b>
+                            </h4>
+                            <p class="text-success">
+                                @ViewBag.Message
+                            </p>
+                        }
+                    }
+                    else
+                    {
+
+                        using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            if (ViewBag.Message != null)
+                            {
+                                <h4 class="m-t-0 header-title">
+                                    <a href="index.html" class="logo">
+                                        <img src="~/assets/images/logo.png" alt="" height="40" class="logo-sm">
+                                    </a><b>MUTABAKATCIM</b>
+                                </h4>
+                                <p class="text-muted m-b-6 m-t-0 font-13">
+                                    @Deneme.Resource.Please <strong>@Deneme.Resource.CreateUserAccount</strong>
+                                </p>
+                                <p class="text-danger m-b-10">
+                                    @Deneme.Resource.Error  @ViewBag.Message
+                                </p>
+
+                            }
+                            else
+                            {
+                                <h4 class="m-t-0 header-title">
+                                    <a href="index.html" class="logo">
+                                        <img src="~/assets/images/logo.png" alt="" height="40" class="logo-sm">
+                                    </a><b>MUTABAKATCIM</b>
+                                </h4>
+                                <p class="text-muted m-b-30 font-13">
+                                    @Deneme.Resource.Please <strong>@Deneme.Resource.CreateUserAccount</strong>
+                                </p>
+                            }
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label " for="email2">@Deneme.Resource.Email * </label>
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label " for="userName2">@Deneme.Resource.Username * </label>
+                                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label " for="password2"> @Deneme.Resource.Password *</label>
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label " for="confirm2">@Deneme.Resource.ConfirmPassword *</label>
+                                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <label class="control-label" for="CompanyTitle"> @Deneme.Resource.CompanyTitle *</label>
+                                        @Html.EditorFor(model => model.CompanyTitle, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.CompanyTitle, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label " for="TxOffice"> @Deneme.Resource.TaxOffice *</label>
+                                        @Html.EditorFor(model => model.TaxOffice, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TaxOffice, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label " for="TaxNumber">@Deneme.Resource.TaxNumber *</label>
+                                        @Html.EditorFor(model => model.TaxNumber, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TaxNumber, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label " for="FaxNumber"> @Deneme.Resource.FaxNumber *</label>
+                                        @Html.EditorFor(model => model.FaxNumber, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.FaxNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-10">
+                                        <label class="control-label" for="Address"> @Deneme.Resource.Address *</label>
+                                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label" for="PhoneNumber"> @Deneme.Resource.PhoneNumber *</label>
+                                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <label class="control-label" for="Country"> @Deneme.Resource.Country *</label>
+                                        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label " for="City"> @Deneme.Resource.City *</label>
+                                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label " for="State">@Deneme.Resource.State *</label>
+                                        @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "required form-control" } })
+                                        @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group text-center m-t-20">
+                                    @*<div class="col-12">*@
+                                        <button class="btn btn-success btn-block text-uppercase waves-effect waves-light"
+                                                type="submit">
+                                            @Deneme.Resource.Register
+                                        </button>
+                                    @*</div>*@
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                        <small>@Deneme.Resource.Reminder1</small> -
+                                        <a href="javascript:void(0)" id="link-register-login"><small>@Html.ActionLink(Deneme.Resource.Login, "Login", "SiteUser")</small></a>
+                                    </div>
+                                </div>
+
+                            </form>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+    </div> <!-- end container -->
+    @*</div>*@
+    <!-- end wrapper -->
+    <!-- jQuery  -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/waves.js"></script>
+    <script src="~/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/jquery.core.js"></script>
+    <script src="~/assets/js/jquery.app.js"></script>
+
+</body>
+</html>

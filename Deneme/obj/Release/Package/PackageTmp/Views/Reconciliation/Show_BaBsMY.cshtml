@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Show_FAEY";
+}
+<body onload="Show()">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="btn-group pull-right">
+                    <ol class="breadcrumb hide-phone p-0 m-0">
+                        <li class="breadcrumb-item"><a href="#">Mutabakatcim</a></li>
+                        <li class="breadcrumb-item"><a href="@Url.Action("BaBsMY_View", "Reconciliation")">@Deneme.Resource.Reconciliation</a></li>
+
+                        <li class="breadcrumb-item active">@Deneme.Resource.Show</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+
+    <table id="BillTemplate" class="display nowrap table table-striped table-bordered" style="width:100%;">
+        <thead>
+            <tr>
+                <th>@Deneme.Resource.CurrentCode</th>
+                <th>@Deneme.Resource.CurrentName</th>
+                <th>@Deneme.Resource.TaxNumber</th>
+                <th>@Deneme.Resource.DocumentNumber</th>
+                <th>@Deneme.Resource.VatExcluded</th>
+                <th>@Deneme.Resource.EmailStatus</th>
+                <th>@Deneme.Resource.ConfirmationStatus</th>
+                <th>@Deneme.Resource.EmailDetail</th>
+                <th></th>
+
+            </tr>
+        </thead>
+    </table>
+
+
+    @section scripts{
+
+        <script>
+
+            var Popup, dataTable;
+            window.onload = function Show() {
+                dataTable = $("#BillTemplate").DataTable({
+                    responsive: {
+                        details: {
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    return col.hidden ?
+                                        '<tr data-dt-row="' + col.rowIndex + '" data-dt-column="' + col.columnIndex + '">' +
+                                        '<td>' + col.title + ':' + ' </td> ' +
+                                        '<td>' + col.data + ' </td>' +
+                                        '</tr>' :
+                                        '';
+                                }).join('');
+
+                                return data ?
+                                    $('<table/>').append(data) :
+                                    false;
+                            }
+                        }
+                    },
+                "ajax": {
+                    "url": "/Reconciliation/Show_BaBsMYView/"+@ViewBag.MutabakatId,
+                    "type": "GET",
+                    "datatype": "json",
+                    "style":"margin-left:50px"
+                },
+                "columns": [
+                    { "data": "CariKodu" },
+                    { "data": "CariAdı" },
+                    { "data": "VergiNo" },
+                    { "data": "BelgeSayısı" },
+                    { "data": "KdvHariçTutar" },
+                    { "data": "MailDurumu" },
+                    { "data": "OnayDurumu" },
+                    { "data": "MailDetay" },
+                    { "data": "MutabakatDetayId" , "render" : function (data) {
+                        return "<a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Download(" + data +")><i class='fa fa-download'></i> @Deneme.Resource.Download </a>";
+                    },
+                        "destroy": true,
+                        "orderable": false,
+                        "searchable":false,
+                        "width":"150px"
+                    }
+                ],
+                "language": {
+
+                    "info": "@Deneme.Resource.Info",
+                    "infoEmpty": "@Deneme.Resource.InfoEmpty",
+                    "infoFiltered": "@Deneme.Resource.InfoFiltered",
+                    "lengthMenu": "@Deneme.Resource.LengthMenu",
+                    "loadingRecords": "@Deneme.Resource.LoadingRecords",
+                    "zeroRecords": "@Deneme.Resource.ZeroRecords",
+                    "search": "@Deneme.Resource.Search",
+                    "emptyTable": "@Deneme.Resource.EmptyTable",
+                    "paginate": {
+                        "next": "@Deneme.Resource.Next",
+                        "previous": "@Deneme.Resource.Previous"
+                    },
+                }
+            });
+            }
+
+            function Download(id) {
+
+                window.location.href = '/Reconciliation/Download/' + id;
+            }
+        </script>
+    }
+</body>

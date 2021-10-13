@@ -1,0 +1,69 @@
+﻿
+@model Deneme.Models.Yetki
+@{
+
+    Layout = null;
+}
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+@using (Html.BeginForm("Authorization_SUOP", "SubUserOperations", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.YetkiID)
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<div class="row">
+
+        <div class="col-lg-6">*@
+
+    @*<h4 class="m-t-0 header-title">Contextual classes</h4>
+        <p class="text-muted font-14 m-b-20">
+            Use contextual classes to color table rows or individual cells.
+        </p>*@
+    <div class="form-row">
+        <table class="table table-bordered table-hover col-md-12">
+            <tbody>
+                <tr class="table-warning">
+                    <th scope="row">Ba</th>
+                    <td> @Html.CheckBoxFor(m => m.BaOluştur) @Deneme.Resource.Create</td>
+                    <td> @Html.CheckBoxFor(m => m.BaDüzenle)  @Deneme.Resource.Edit</td>
+                    <td> @Html.CheckBoxFor(m => m.BaMailGönder)  @Deneme.Resource.SendMail</td>
+                    <td> @Html.CheckBoxFor(m => m.BaSil)  @Deneme.Resource.Delete</td>
+                    <td> @Html.CheckBoxFor(m => m.BaSmsGönder)  @Deneme.Resource.SendSms</td>
+                </tr>
+                <tr class="table-danger">
+                    <th scope="row">Bs</th>
+                    <td> @Html.CheckBoxFor(m => m.BsOluştur)   @Deneme.Resource.Create</td>
+                    <td> @Html.CheckBoxFor(m => m.BsDüzenle)   @Deneme.Resource.Edit</td>
+                    <td> @Html.CheckBoxFor(m => m.BsMailGönder)  @Deneme.Resource.SendMail</td>
+                    <td> @Html.CheckBoxFor(m => m.BsSil)  @Deneme.Resource.Delete</td>
+                    <td> @Html.CheckBoxFor(m => m.BsSmsGönder)  @Deneme.Resource.SendSms</td>
+                </tr>
+                <tr class="table-success">
+                    <th scope="row">Cari</th>
+                    <td> @Html.CheckBoxFor(m => m.CariOluştur)   @Deneme.Resource.Create</td>
+                    <td> @Html.CheckBoxFor(m => m.CariDüzenle)   @Deneme.Resource.Edit</td>
+                    <td> @Html.CheckBoxFor(m => m.CariMailGönder)   @Deneme.Resource.SendMail</td>
+                    <td> @Html.CheckBoxFor(m => m.CariSil)  @Deneme.Resource.Delete</td>
+                    <td> @Html.CheckBoxFor(m => m.CariSmsGönder)  @Deneme.Resource.SendSms</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                @Html.DropDownList("CompanyId", null, Deneme.Resource.SelectCompany, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.CompanyId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group text-center m-t-15 col-md-12">
+                <button class="btn btn-danger btn-block text-uppercase waves-effect waves-light"
+                        type="submit">
+                    @Deneme.Resource.Save
+                </button>
+            </div>
+        </div>
+
+
+        <script src="assets/js/bootstrap.min.js"></script>
+        }

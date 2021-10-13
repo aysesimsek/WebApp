@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Show_FAEY";
+}
+<br />
+
+@*<a class="btn btn-success" style="margin-bottom:10px;" onclick="PopupForm('@Url.Action("Show_FAEY","Excel")')"><i class="fa fa-plus"></i> Add New</a>*@
+<body onload="Show()">
+    <table id="BillTemplate" class="display nowrap table table-striped table-bordered" style="width:100%;">
+        <thead>
+            <tr>
+                <th>@Deneme.Resource.CurrentCode</th>
+                <th>@Deneme.Resource.CurrentName</th>
+                <th>@Deneme.Resource.TaxOffice</th>
+                <th>@Deneme.Resource.TaxNumber</th>
+                <th>@Deneme.Resource.VatExcluded</th>
+                <th>@Deneme.Resource.VatValue</th>
+                <th>@Deneme.Resource.DocumentDate</th>
+                <th>@Deneme.Resource.DocumentNumber</th>
+
+            </tr>
+        </thead>
+    </table>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    @section scripts{
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap4.min.js"></script>
+        <script>
+
+            var Popup, dataTable;
+            window.onload = function Show() {
+                dataTable = $("#BillTemplate").DataTable({
+                    responsive: {
+                        details: {
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    return col.hidden ?
+                                        '<tr data-dt-row="' + col.rowIndex + '" data-dt-column="' + col.columnIndex + '">' +
+                                        '<td>' + col.title + ':' + ' </td> ' +
+                                        '<td>' + col.data + ' </td>' +
+                                        '</tr>' :
+                                        '';
+                                }).join('');
+
+                                return data ?
+                                    $('<table/>').append(data) :
+                                    false;
+                            }
+                        }
+                    },
+                "ajax": {
+                    "url": "/CurrentReconciliation/Show_CRView/"+@ViewBag.CariMutabakatId,
+                    "type": "GET",
+                    "datatype": "json",
+                    "style":"margin-left:50px"
+                },
+                "columns": [
+                    { "data": "CariKodu" },
+                    { "data": "CariAdı" },
+                    { "data": "VergiDairesi" },
+                    { "data": "VergiNo" },
+                    { "data": "KdvHariçTutar" },
+                    { "data": "KdvTutarı" },
+                    { "data": "BelgeTarihi" },
+                    { "data": "BelgeNumarası" },
+                ],
+                "language": {
+
+                     "info": "@Deneme.Resource.Info",
+                    "infoEmpty": "@Deneme.Resource.InfoEmpty",
+                    "infoFiltered": "@Deneme.Resource.InfoFiltered",
+                    "lengthMenu": "@Deneme.Resource.LengthMenu",
+                    "loadingRecords": "@Deneme.Resource.LoadingRecords",
+                    "zeroRecords": "@Deneme.Resource.ZeroRecords",
+                    "search": "@Deneme.Resource.Search",
+                    "emptyTable": "@Deneme.Resource.EmptyTable",
+                    "paginate": {
+
+                        "next": "@Deneme.Resource.Next",
+                        "previous": "@Deneme.Resource.Previous"
+                    },
+                }
+            });
+            }
+
+        </script>
+    }
+</body>

@@ -1,0 +1,121 @@
+﻿@model Deneme.Models.CariBilgileriExcel
+@{
+
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("Add_CEYDetail", "CurrentInformations", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.CariId)
+    @Html.HiddenFor(model => model.CariBilgileriId)
+    <div class="form-horizontal">
+        <div class="login-title text-center alert-success">
+            <h3> <strong>@Deneme.Resource.Fill </strong></h3>
+        </div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.CariKodu, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CariKodu, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.CurrentCode } })
+                @Html.ValidationMessageFor(model => model.CariKodu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.CariAdı, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CariAdı, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.CurrentName } })
+                @Html.ValidationMessageFor(model => model.CariAdı, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.VergiDairesi, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CariTipi, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.CurrentType } })
+                @Html.ValidationMessageFor(model => model.CariTipi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.VergiDairesi, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VergiDairesi, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.TaxOffice } })
+                @Html.ValidationMessageFor(model => model.VergiDairesi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.VergiNo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VergiNo, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.TaxNumber } })
+                @Html.ValidationMessageFor(model => model.VergiNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.KdvHariçTutar, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TcKimlikNo, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.IdentificationNumber } })
+                @Html.ValidationMessageFor(model => model.TcKimlikNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.KdvHariçTutar, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email1, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.Email1 } })
+                @Html.ValidationMessageFor(model => model.Email1, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.BelgeTarihi, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email2, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.Email2 } })
+                @Html.ValidationMessageFor(model => model.Email2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.BelgeNumarası, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cariİl, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.CurrentState } })
+                @Html.ValidationMessageFor(model => model.Cariİl, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.BelgeNumarası, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.PhoneNumber } })
+                @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.BelgeNumarası, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.Address } })
+                @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.BelgeNumarası, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DövizTipi, new { htmlAttributes = new { @class = "form-control", @placeholder = Deneme.Resource.ExchangeType } })
+                @Html.ValidationMessageFor(model => model.DövizTipi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12 text-center">
+                <input type="submit" value="@Deneme.Resource.Save" class="btn btn-default btn-primary" />
+            </div>
+        </div>
+    </div>
+
+}

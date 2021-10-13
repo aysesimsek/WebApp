@@ -1,0 +1,320 @@
+﻿@model Deneme.Models.Yetki
+@using Deneme.Models;
+@{
+    ViewBag.Title = "Show_Auth";
+}
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="btn-group pull-right">
+                    <ol class="breadcrumb hide-phone p-0 m-0">
+                        <li class="breadcrumb-item"><a href="#">Mutabakatcim</a></li>
+                        <li class="breadcrumb-item"><a href="@Url.Action("SUOP_View", "SubUserOperations")">@Deneme.Resource.Authorize</a></li>
+                        <li class="breadcrumb-item active">@Deneme.Resource.Show</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    @foreach (var item in ViewBag.auths)
+    {
+
+        <div class="panel-heading">
+            <h4 class="text-center">
+                @item.CompanyName
+            </h4>
+        </div>
+
+        <hr />
+        <div class="form-row">
+            <table class="table table-bordered table-hover col-md-12">
+                <tbody>
+                    @using (YirmibesYazilimMutabakatEntities1 dc = new YirmibesYazilimMutabakatEntities1())
+                    {
+                        <tr class="table-warning">
+                            <th scope="row">Ba</th>
+                            @if (@item.Yetkiler.Split(',')[0] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.Create
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.Create
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[1] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.Edit
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.Edit
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[2] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.SendMail
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.SendMail
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[3] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.Delete
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.Delete
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[4] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.SendSms
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Ba @Deneme.Resource.SendSms
+                                    </label>
+                                </td>
+                            }
+                        </tr>
+                        <tr class="table-danger">
+                            <th scope="row">Bs</th>
+                            @if (@item.Yetkiler.Split(',')[5] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.Create
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.Create
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[6] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.Edit
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.Edit
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[7] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.SendMail
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.SendMail
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[8] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.Delete
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.Delete
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[9] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.SendSms
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Bs @Deneme.Resource.SendSms
+                                    </label>
+                                </td>
+                            }
+                        </tr>
+                        <tr class="table-success">
+                            <th scope="row">Cari</th>
+                            @if (@item.Yetkiler.Split(',')[10] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.Create
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.Create
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[11] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.Edit
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.Edit
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[12] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.SendMail
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.SendMail
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[13] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.Delete
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.Delete
+                                    </label>
+                                </td>
+                            }
+                            @if (@item.Yetkiler.Split(',')[14] == "1")
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" checked disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.SendSms
+                                    </label>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="checkbox">
+                                    <input id="checkbox9" type="checkbox" disabled>
+                                    <label for="checkbox9">
+                                        Cari @Deneme.Resource.SendSms
+                                    </label>
+                                </td>
+                            }
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</body>

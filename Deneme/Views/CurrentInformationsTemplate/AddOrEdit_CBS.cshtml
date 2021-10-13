@@ -1,0 +1,132 @@
+﻿@model Deneme.Models.Şablon_CariBilgileri
+@{
+    /**/
+
+    /**/
+
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddOrEdit_CBS", "CurrentInformationsTemplate", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.ŞablonId)
+<div class="block push-bit">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                @*@Html.LabelFor(model => model.ŞablonAdı, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="TemplateName">@Deneme.Resource.TemplateName * </label>
+                @Html.EditorFor(model => model.ŞablonAdı, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.ŞablonAdı, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-4">
+                @*@Html.LabelFor(model => model.ŞablonAdı, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="StartLine">@Deneme.Resource.StartLine * </label>
+                @Html.EditorFor(model => model.BaşlangıçSatırı, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.BaşlangıçSatırı, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.CariKodu, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="CurrentCode">@Deneme.Resource.CurrentCode * </label>
+                @Html.DropDownList("CariKodu", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.CurrentCode + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.CariKodu, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.CariAdı, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="CurrentName">@Deneme.Resource.CurrentName * </label>
+                @Html.DropDownList("CariAdı", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.CurrentName + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.CariAdı, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.VergiDairesi, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="CurrentType">@Deneme.Resource.CurrentType * </label>
+                @Html.DropDownList("CariTipi", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.CurrentType + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.CariTipi, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.VergiDairesi, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="TaxOffice">@Deneme.Resource.TaxOffice * </label>
+                @Html.DropDownList("VergiDairesi", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.TaxOffice + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.VergiDairesi, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.VergiNo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="TaxNumber">@Deneme.Resource.TaxNumber * </label>
+                @Html.DropDownList("VergiNo", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.TaxNumber + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.VergiNo, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.KdvHariçTutar, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="IdentificationNumber">@Deneme.Resource.IdentificationNumber * </label>
+                @Html.DropDownList("TcKimlikNo", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.IdentificationNumber + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.TcKimlikNo, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.KdvHariçTutar, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="Email1">@Deneme.Resource.Email1 * </label>
+                @Html.DropDownList("Email1", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.Email1 + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.Email1, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.BelgeTarihi, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="Email1">@Deneme.Resource.Email2 * </label>
+                @Html.DropDownList("Email2", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.Email2 + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.Email2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.BelgeNumarası, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="CurrentState">@Deneme.Resource.CurrentState * </label>
+                @Html.DropDownList("Cariİl", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.CurrentState + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.Cariİl, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.BelgeNumarası, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="PhoneNumber">@Deneme.Resource.PhoneNumber * </label>
+                @Html.DropDownList("Telefon", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.PhoneNumber + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.BelgeNumarası, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="Address">@Deneme.Resource.Address * </label>
+                @Html.DropDownList("Adres", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.Address + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-3">
+                @*@Html.LabelFor(model => model.BelgeNumarası, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <label class="control-label " for="ExchangeType">@Deneme.Resource.ExchangeType * </label>
+                @Html.DropDownList("DövizTipi", new SelectList(Enum.GetValues(typeof(Deneme.Models.Şablon_CariBilgileri.Alphabet))), Deneme.Resource.Select + ' ' + Deneme.Resource.ExchangeType + ' ' + Deneme.Resource.Select2, new { @class = "required form-control" })
+                @Html.ValidationMessageFor(model => model.DövizTipi, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group text-center m-t-15 ">
+            <button class="btn btn-danger btn-block text-uppercase waves-effect waves-light"
+                    type="submit">
+                @Deneme.Resource.Save
+            </button>
+        </div>
+    </form>
+</div>
+
+}

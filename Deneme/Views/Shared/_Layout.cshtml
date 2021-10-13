@@ -1,0 +1,230 @@
+﻿@using Deneme.Models;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" lang="tr" />
+    <title>MUTABAKATCIM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    @*<meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />*@
+
+    <link href="~/assets/css/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+    <!-- App css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    @*
+        @*<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/assets/js/modernizr.min.js"></script>
+
+</head>
+<body class="bg-white">
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container-fluid">
+
+                <!-- Logo container-->
+                <div class="logo">
+                    <!-- Text Logo -->
+                    <!--<a href="index.html" class="logo">-->
+                    <!--UBold-->
+                    <!--</a>-->
+                    <!-- Image Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="~/assets/images/beyaz.png" alt="" height="50" class="logo-lg">
+                        <img src="~/assets/images/logo.png" alt="" height="40" class="logo-sm">
+
+                    </a>
+                </div>
+                <div class="menu-extras topbar-custom">
+
+                    <ul class="list-inline float-right mb-0">
+                        <li class="menu-item list-inline-item">
+                            @*<div class="col-xs-6 text-center ">*@
+                            @*<div class="card m-b-0  text-center  text-white bg-inverse nav-link">*@
+
+                            @using (YirmibesYazilimMutabakatEntities1 db = new YirmibesYazilimMutabakatEntities1())
+                            {
+                                int a = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["UserOp"]["CompanyId"])); var name = db.Company.Where(x => x.CompanyId == a).FirstOrDefault();
+                                <a href="@Url.Action("COP_View", "CompanyOperations")" class="nav-link text-white waves-effect waves-light nav-user">
+                                    <p class="m-l-10 m-r-10 m-b-0 m-t-10">@Deneme.Resource.CompanyTitle : &nbsp;<code> &nbsp;@name.CompanyName  &nbsp;</code></p>
+                                    <p class="m-l-10 m-r-10 m-b-10 m-t-0"> @Deneme.Resource.CompanyCode &nbsp;&nbsp;&nbsp;: &nbsp;<code> &nbsp; @a  &nbsp;</code> </p>
+                                </a>
+
+
+                            }
+
+
+                            @*</div>*@
+                            @*</div>*@
+                        </li>
+                        <li class="menu-item list-inline-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link waves-effect waves-light">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+                        <li class="list-inline-item dropdown notification-list">
+                            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="false" aria-expanded="false">
+                                <img src="~/assets/images/users/asd.jpg" alt="user" class="rounded-circle">
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+                                <!-- item-->
+                                @if (Server.HtmlEncode(Request.Cookies["UserOp"]["isAdmin"]) == "1")
+                                {
+                                    <a href="@Url.Action("UOP_View", "UserOperations")" class="dropdown-item notify-item">
+                                        <i class="md md-account-circle"></i> <span>@Deneme.Resource.MyProfile</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="@Url.Action("SUOP_View", "SubUserOperations")" class="dropdown-item notify-item">
+                                        <i class="md md-settings"></i> <span>@Deneme.Resource.Authorize</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="@Url.Action("COP_View", "CompanyOperations")" class="dropdown-item notify-item">
+                                        <i class="md md-lock-open"></i> <span>@Deneme.Resource.CompanyOp</span>
+                                    </a>
+                                }
+                                @if (Server.HtmlEncode(Request.Cookies["UserOp"]["isAdmin"]) == "0")
+                                {
+                                    <a href="@Url.Action("SubCOP_View", "CompanyOperations")" class="dropdown-item notify-item">
+                                        <i class="md md-lock-open"></i> <span>@Deneme.Resource.CompanyOp</span>
+                                    </a>
+                                }
+                                <!-- item-->
+                                <a href="@Url.Action("Logout", "SiteUser")" class="dropdown-item notify-item">
+                                    <i class="md md-settings-power"></i> <span>@Deneme.Resource.Logout</span>
+                                </a>
+
+                            </div>
+                        </li>
+                        <li class="list-inline-item dropdown notification-list">
+                            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="false" aria-expanded="false">
+                                <img src="~/assets/images/design-publication-1-22868-0-600px.jpg" alt="user" class="rounded-circle">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown text-md-center" aria-labelledby="Preview">
+                                <!-- item-->
+
+                                @foreach (var i in Deneme.SiteLanguages.AvailableLanguages)
+                                {
+                                    <div>
+                                        <span>
+                                            @Html.ActionLink(i.LangFullName, "ChangeLanguage", "SiteUser", new { lang = i.LangCultureName }, null)
+                                        </span>
+                                    </div>
+                                }
+                            </div>
+
+
+
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- end menu-extras -->
+
+                <div class="clearfix"></div>
+
+            </div> <!-- end container -->
+        </div>
+        <!-- end topbar-main -->
+
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+
+                    <ul class="navigation-menu">
+
+                        <li>
+                            <a href="@Url.Action("Index", "Home")"><i class="md md-dashboard"></i>@Deneme.Resource.Home</a>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("FAEY_View", "Invoice")"><i class="md md-color-lens"></i>@Deneme.Resource.Invoices</a>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("CEY_View", "CurrentInformations")"><i class="md md-layers"></i>@Deneme.Resource.CurrentInformations</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("CR_View", "CurrentReconciliation")"><i class="md md-layers"></i>@Deneme.Resource.CurrentReconciliation</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("BaBsMY_View", "Reconciliation")"><i class="md md-report"></i>@Deneme.Resource.Reconciliation</a>
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="#"><i class="md md-pages"></i>@Deneme.Resource.TemplateSettings</a>
+                            <ul class="submenu">
+                                <li><a href="@Url.Action("FAS_View", "InvoiceTemplate")">@Deneme.Resource.InvoiceTransferTemplate</a></li>
+                                <li><a href="@Url.Action("CMS_View", "CurrentReconciliationTemplate")">@Deneme.Resource.CurrentReconciliationTemplate</a></li>
+                                <li><a href="@Url.Action("CBS_View", "CurrentInformationsTemplate")">@Deneme.Resource.CurrentInformationTemplate</a></li>
+                                <li><a href="@Url.Action("BBMS_View", "ReconciliationTemplate")">@Deneme.Resource.ReconciliationTemplate</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+
+
+                    <!-- End navigation menu -->
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div> <!-- end navbar-custom -->
+    </header>
+    <!-- End Navigation Bar-->
+
+    <br /><br /><br /><br /><br /><br /><br />
+
+    <form style="margin-left:80px; margin-right:80px;">
+
+        @RenderBody()
+        <!-- end wrapper -->
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        © 2016 - 2018 MUTABAKATCIM - Mutabakatcim.com
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+        <!-- jQuery  -->
+        <script src="~/assets/js/jquery.min.js"></script>
+        <script src="~/assets/js/popper.min.js"></script> @*Popper for Bootstrap*@
+        <script src="~/assets/js/bootstrap.min.js"></script>
+        <script src="~/assets/js/jquery.validate.min.js"></script>
+        <script src="~/assets/js/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/assets/js/jquery-ui-1.12.1.min.js"></script>
+        <script src="~/assets/js/notify.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap4.min.js"></script>
+
+        <script src="~/assets/js/jquery.app.js"></script>
+        <script src="~/assets/js/jquery.core.js"></script>
+        @RenderSection("Scripts", false)
+    </form>
+</body>
+</html>

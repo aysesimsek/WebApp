@@ -1,0 +1,5 @@
+
+          string ayse = Server.HtmlEncode(Request.Cookies[FormsAuthentication.FormsCookieName]["Yetki"]);
+                        Response.Cookies[FormsAuthentication.FormsCookieName]["Yetki"] = "oldu";
+                      
+                        string betül = Server.HtmlEncode(Request.Cookies[FormsAuthentication.FormsCookieName]["Yetki"]);

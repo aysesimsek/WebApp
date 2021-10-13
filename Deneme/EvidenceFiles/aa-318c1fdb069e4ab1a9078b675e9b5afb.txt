@@ -1,0 +1,30 @@
+"kafka’nýn deðiþim eserinde hayvanlaþan hayat anlayýþýmýzý kaç kiþi anlayabildi ki, intihar etmek için çabalarýný kaçýmýz düþündü ki, yoksa hasta bir kiþiliði mi okuyoruz?
+
+kaç kiþi sanat adý altýnda mozart’ýn sarayda kýzlarýn peþinde koþarken krala yakalanmasýný biliyor ki? kýz çýðlýklar içinde kaçarken mozart onun peþinde koþuyordu. üstü baþý daðýnýk, kendinden geçmiþ bir halde kralý karþýsýnda görünce susmak yerine krala þunu demiþti: “ben bayaðý biriyim ama yazdýklarým bayaðý deðildir.”
+
+zweig’in, tanrý’nýn bileklerinden tuttum derken, “kaderime ben hakimim” demek istediðini. hugo’nun kadýn düþkünü olduðunu, dostoyevski’nin kumar tutkunluðunu, balzac’ýn dolandýrýcýlýðýný, poe’nin ayyaþ olana kadar içtiðini, “sen sarhoþ mu yazýyorsun?” dedikleri zaman, kaç kiþi yüzünde beliren sanat anlayýþý ile yaþamýnýn arasýndaki uçuruma kendini koydu?
+
+tarih deliliklerle dolu, kaç kiþi bu deliliklerin arasýnda yolculuk yapmak ister?
+
+“gecenin mahremiyetini yýrttým” derken rimbaud’u kaçýmýz anladý, verlain korkularýnýn kendini uyutmadýðýný, nietzsche otel odasýnda kusmuklarý içinde ölürken yanýnda hiç kimsenin olmamasýný, miller’in karýsýný sattýðýný bile bilmiyoruz belki de…
+
+gorki gibi yazabilmek için on yýlýmý harcarým diyebilecek kaç deli var aramýzda, descartes’in alýn kurallarý eserini yazdýktan sonra tebessüm içinde övünerek kahvesini yudumladýðýný, kendi romanýnda kurguladýðý kiþiliðe herkesten önce kendisinin inandýðý gogol gibi, kaç kiþi var kurgusuna güvenen?
+
+tarih deliliklerle dolu…
+
+cipolla’nýn iktisat tarihine meydan okuduðunu bile unutmuþuzdur.
+
+ibni sina’nýn “týbbý üç kelime içine alýyorum” dediðinde kibirli halini , batuta her gördüðü yüze inancýný sorduðunu, farabi mutluluk teorisini kalem alýrken mutsuz olduðunu kaçýmýz düþündü ki?
+
+düþüncelerin sakýncalý olabileceðini bile krallarýn savaþlarý kaybettiklerinde anladýklarýný, kardeþ kavgalarýnýn gölgesinde suskunluklarý, saray odalarýnda musiki yerine fransýz müziðinin seslendirildiðini, kaç kiþi gerçeklerin bizim düþündüðümüz gibi olmadýðýný biliyor ki?
+
+tarih deliliklerle dolu….
+
+sanat anlayýþýný hayatlarý ile kýyasladýðýnýzda kaç sanatkar, kaç yazar, kaç þair, aklýmýzda hayal etmiþ olduðumuz þekilde yaþadý ki?
+
+sanat delilik ister demiyorum, ama sanatkar deli olabilir…
+
+insanlarý yazdýklarý ile anlamalýyýz, yaþantýlarý ile anlamaya çalýþýrsak sanatlarýnýn güzelliðine haksýzlýk ederiz…"
+
+
+ //return '<a href="/Excel/ShowAllBills?FID=' + data.FaturaId + '"><button class="btn btn-success btn-xs">View</button></a>';

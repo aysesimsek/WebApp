@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Ubold - Responsive Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+    <!-- App css -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/assets/js/modernizr.min.js"></script>
+
+</head>
+
+
+<body>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container-fluid">
+
+                <!-- Logo container-->
+                <div class="logo">
+                    <!-- Text Logo -->
+                    <!--<a href="index.html" class="logo">-->
+                    <!--UBold-->
+                    <!--</a>-->
+                    <!-- Image Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="~/assets/images/logo_dark.png" alt="" height="20" class="logo-lg">
+                        <img src="~/assets/images/logo_sm.png" alt="" height="24" class="logo-sm">
+                    </a>
+
+                </div>
+                <!-- End Logo container-->
+
+
+                <div class="menu-extras topbar-custom">
+
+                    <ul class="list-inline float-right mb-0">
+
+                        <li class="menu-item list-inline-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+                        <li class="list-inline-item dropdown notification-list">
+                            <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="dripicons-bell noti-icon"></i>
+                                <span class="badge badge-pink noti-icon-badge">4</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+                                <!-- item-->
+                                <a href="@Url.Action("UOP_View", "UserOperations")" class="dropdown-item notify-item">
+                                    <i class="md md-account-circle"></i> <span>Profil</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="@Url.Action("SUOP_View", "SubUserOperations")" class="dropdown-item notify-item">
+                                    <i class="md md-settings"></i> <span>Yetkilendirme</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="@Url.Action("COP_View", "CompanyOperations")" class="dropdown-item notify-item">
+                                    <i class="md md-lock-open"></i> <span>Şirket işlemleri</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="@Url.Action("Logout", "SiteUser")" class="dropdown-item notify-item">
+                                    <i class="md md-settings-power"></i> <span>@Deneme.Resource.Logout</span>
+                                </a>
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item dropdown notification-list">
+                            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="false" aria-expanded="false">
+                                <img src="~/assets/images/users/asd.jpg" alt="user" class="rounded-circle">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+                                <!-- item-->
+                                <a href="@Url.Action("UOP_View", "UserOperations")" class="dropdown-item notify-item">
+                                    <i class="md md-account-circle"></i> <span>Profil</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="@Url.Action("SUOP_View", "SubUserOperations")" class="dropdown-item notify-item">
+                                    <i class="md md-settings"></i> <span>Yetkilendirme</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="@Url.Action("COP_View", "CompanyOperations")" class="dropdown-item notify-item">
+                                    <i class="md md-lock-open"></i> <span>Şirket işlemleri</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="@Url.Action("Logout", "SiteUser")" class="dropdown-item notify-item">
+                                    <i class="md md-settings-power"></i> <span>@Deneme.Resource.Logout</span>
+                                </a>
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item dropdown notification-list">
+                            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="false" aria-expanded="false">
+                                <img src="~/assets/images/design-publication-1-22868-0-600px.jpg" alt="user" class="rounded-circle">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown text-md-center" aria-labelledby="Preview">
+                                <!-- item-->
+
+                                @foreach (var i in Deneme.SiteLanguages.AvailableLanguages)
+                                {
+                                <div>
+                                    <span>
+                                        @Html.ActionLink(i.LangFullName, "ChangeLanguage", "SiteUser", new { lang = i.LangCultureName }, null)
+                                    </span>
+                                </div>
+                                }
+
+
+                        </div>
+                        </li>
+
+                        </ul>
+                    </div>
+                    <!-- end menu-extras -->
+
+                    <div class="clearfix"></div>
+
+                </div> <!-- end container -->
+                </div>
+                <!-- end topbar-main -->
+
+                <div class="navbar-custom">
+                    <div class="container-fluid">
+                        <div id="navigation">
+                            <!-- Navigation Menu-->
+                            <ul class="navigation-menu">
+
+                                <li>
+                                    <a href="@Url.Action("Index", "Home")"><i class="md md-dashboard"></i>@Deneme.Resource.Home</a>
+                                </li>
+
+                                <li>
+                                    <a href="@Url.Action("FAEY_View", "Invoice")"><i class="md md-color-lens"></i>@Deneme.Resource.Invoices</a>
+                                </li>
+
+                                <li>
+                                    <a href="@Url.Action("CEY_View", "CurrentInformations")"><i class="md md-layers"></i>@Deneme.Resource.CurrentInformations</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("CR_View", "CurrentReconciliation")"><i class="md md-layers"></i>@Deneme.Resource.CurrentReconciliation</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="#"><i class="md md-pages"></i>Ba-Bs Mutabakat İşlemleri</a>
+                                    <ul class="submenu">
+                                        <li>   <a href="@Url.Action("BaBsMY_View", "Reconciliation")">@Deneme.Resource.Reconciliation</a></li>
+                                        <li><a href="@Url.Action("BaBsExcel_View", "BaBsReconciliation")">BaBs Excel Yükleme</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="has-submenu">
+                                    <a href="#"><i class="md md-pages"></i>@Deneme.Resource.TemplateSettings</a>
+                                    <ul class="submenu">
+                                        <li><a href="@Url.Action("FAS_View", "InvoiceTemplate")">@Deneme.Resource.InvoiceTransferTemplate</a></li>
+                                        <li><a href="@Url.Action("CMS_View", "CurrentReconciliationTemplate")">@Deneme.Resource.CurrentReconciliationTemplate</a></li>
+                                        <li><a href="@Url.Action("CBS_View", "CurrentInformationsTemplate")">@Deneme.Resource.CurrentInformationTemplate</a></li>
+                                        <li><a href="@Url.Action("BBMS_View", "ReconciliationTemplate")">@Deneme.Resource.ReconciliationTemplate</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                            <!-- End navigation menu -->
+                        </div> <!-- end #navigation -->
+                    </div> <!-- end container -->
+                </div> <!-- end navbar-custom -->
+            </header>
+            <!-- End Navigation Bar-->
+            <div class="wrapper">
+                <div class="container-fluid">
+
+                    <!-- Page-Title -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-title-box">
+                                <div class="btn-group pull-right">
+                                    <ol class="breadcrumb hide-phone p-0 m-0">
+                                        <li class="breadcrumb-item"><a href="#">Ubold</a></li>
+                                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                        <li class="breadcrumb-item active">Dashboard</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title end breadcrumb -->
+
+                </div> <!-- end container -->
+            </div>
+
+            <form style="margin-left:80px; margin-right:80px;">
+                @RenderBody()
+
+                <!-- end wrapper -->
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                © 2016 - 2018 UBold - Coderthemes.com
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End Footer -->
+                <!-- jQuery  -->
+                @*<script src="~/Scripts/jquery-1.12.4.min.js"></script>*@
+                <script src="~/assets/js/jquery.min.js"></script>
+                <script src="~/assets/js/popper.min.js"></script> @*Popper for Bootstrap*@
+                <script src="~/assets/js/bootstrap.min.js"></script>
+                <script src="~/Scripts/jquery.validate.min.js"></script>
+                <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+                <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+                <script src="~/Scripts/notify.min.js"></script>
+                @*<script src="~/assets/js/modernizr.min.js"></script>*@
+
+                <script src="~/assets/js/waves.js"></script>
+                <script src="~/assets/js/jquery.slimscroll.js"></script>
+                <script src="~/assets/js/jquery.scrollTo.min.js"></script>
+
+                <!-- App js -->
+                <script src="~/assets/js/jquery.core.js"></script>
+                <script src="~/assets/js/jquery.app.js"></script>
+
+                @*<script src="~/Scripts/jquery-1.12.4.min.js"></script>*@
+                @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+
+                @RenderSection("Scripts", false)
+            </form>
+        </body>
+    </html>

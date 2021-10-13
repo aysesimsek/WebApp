@@ -1,0 +1,191 @@
+﻿@{
+    ViewBag.Title = "Show_CEY";
+}
+<br />
+
+<a class="btn btn-success" style="margin-bottom:10px;" onclick="PopupForm('@Url.Action("Add_CEYDetail","CurrentInformations", new {id=ViewBag.CariId})')"><i class="fa fa-plus"></i> Add New</a>
+
+<body onload="Show()">
+    <table id="BillTemplate" class="display nowrap table table-striped table-bordered" style="width:100%;">
+        <thead>
+            <tr>
+                <th data-priority="1">@Deneme.Resource.CurrentCode</th>
+                <th data-priority="2">@Deneme.Resource.CurrentName</th>
+                <th>@Deneme.Resource.CurrentType</th>
+                <th>@Deneme.Resource.VergiDairesi</th>
+                <th data-priority="3">@Deneme.Resource.VergiNo</th>
+                <th>@Deneme.Resource.IdentificationNumber</th>
+                <th data-priority="4">@Deneme.Resource.Email1</th>
+                <th>@Deneme.Resource.Email2</th>
+                <th>@Deneme.Resource.CurrentState</th>
+                <th>@Deneme.Resource.PhoneNumber</th>
+                <th>@Deneme.Resource.Address</th>
+                <th>@Deneme.Resource.ExchangeType</th>
+                <th data-priority="5"></th>
+            </tr>
+        </thead>
+    </table>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    @section scripts{
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap4.min.js"></script>
+        <script>
+
+            var Popup, dataTable;
+            window.onload = function Show() {
+                dataTable = $("#BillTemplate").DataTable({
+                    responsive: {
+                        details: {
+                            renderer: function (api, rowIdx, columns) {
+                                var data = $.map(columns, function (col, i) {
+                                    return col.hidden ?
+                                        '<tr data-dt-row="' + col.rowIndex + '" data-dt-column="' + col.columnIndex + '">' +
+                                        '<td>' + col.title + ':' + ' </td> ' +
+                                        '<td>' + col.data + ' </td>' +
+                                        '</tr>' :
+                                        '';
+                                }).join('');
+
+                                return data ?
+                                    $('<table/>').append(data) :
+                                    false;
+                            }
+                        }
+                    },
+                "ajax": {
+                    "url": "/CurrentInformations/Show_CEYView/"+@ViewBag.CariId,
+                    "type": "GET",
+                    "datatype": "json",
+                    "style":"margin-left:50px"
+                },
+                "columns": [
+                    { "data": "CariKodu" },
+                    { "data": "CariAdı" },
+                    { "data": "CariTipi" },
+                    { "data": "VergiDairesi" },
+                    { "data": "VergiNo" },
+                    { "data": "TcKimlikNo" },
+                    { "data": "Email1" },
+                    { "data": "Email2" },
+                    { "data": "Cariİl" },
+                    { "data": "Telefon" },
+                    { "data": "Adres" },
+                    { "data": "DövizTipi" },
+                    { "data":"CariId" , "render" : function (data) {
+                        return "<a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete(" + data +")><i class='fa fa-trash'></i> @Deneme.Resource.Delete </a><a class='btn btn-default btn-sm' style='margin-left:5px'  onclick=PopupForm('@Url.Action("Edit_CEY", "CurrentInformations")/" + data + "')><i class='fa fa-pencil'></i> @Deneme.Resource.Edit</a>";
+                    },
+                        "destroy": true,
+                        "orderable": false,
+                        "searchable":false,
+                        "width":"150px"
+                    }
+                ],
+                "language": {
+
+                     "info": "@Deneme.Resource.Info",
+                    "infoEmpty": "@Deneme.Resource.InfoEmpty",
+                    "infoFiltered": "@Deneme.Resource.InfoFiltered",
+                    "lengthMenu": "@Deneme.Resource.LengthMenu",
+                    "loadingRecords": "@Deneme.Resource.LoadingRecords",
+                    "zeroRecords": "@Deneme.Resource.ZeroRecords",
+                    "search": "@Deneme.Resource.Search",
+                    "emptyTable": "@Deneme.Resource.EmptyTable",
+                    "paginate": {
+
+                        "next": "@Deneme.Resource.Next",
+                        "previous": "@Deneme.Resource.Previous"
+                    },
+                }
+            });
+            }
+              function PopupForm(url) {
+            var formDiv = $('<div/>');
+            $.get(url)
+            .done(function (response) {
+                formDiv.html(response);
+
+                Popup = formDiv.dialog({
+
+                    autoOpen: true,
+                    resizable: false,
+                    title: "@Deneme.Resource.AddCurrentDetails",
+                    height: 300,
+                    width: 400,
+                    close: function () {
+                        Popup.dialog('destroy').remove();
+                    }
+
+                });
+            });
+        }
+
+        function SubmitForm(form) {
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                var formData = new FormData($(form)[0]);
+                var progressbarLabel = $('#progressBar-label');
+                var progressbarDiv = $('#progressbar');
+
+                $.ajax({
+                    url: form.action,
+                    type: form.method,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        if (response.success)
+                        {
+                            Popup.dialog('close');
+                            progressbarLabel.text('Complete');
+                            progressbarDiv.fadeOut(2000);
+                            dataTable.ajax.reload();
+
+                            $.notify(response.message, {
+                                globalPosition :"top center",
+                                className : "success"
+                            })
+
+                        }
+
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+                progressbarLabel.text("@Deneme.Resource.Uploading");
+                progressbarDiv.progressbar({
+                    value: false
+                }).fadeIn(500);
+            }
+            return false;
+        }
+        function Delete(id) {
+            if(confirm('@Deneme.Resource.DeleteConfirmation'))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete_CEYExcel", "CurrentInformations")/' + id,
+                    success: function (data) {
+                        if (data.success)
+                        {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+
+                });
+            }
+        }
+        </script>
+    }
+</body>

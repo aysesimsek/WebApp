@@ -1,0 +1,128 @@
+﻿@model Deneme.Models.CariBilgileriExcel
+@{
+
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("Edit_CEY", "CurrentInformations", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.CariId)
+    @Html.HiddenFor(model => model.CariBilgileriId)
+<div class="block push-bit">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label class="control-label " for="CurrentCode">@Deneme.Resource.CurrentCode * </label>
+
+                @Html.EditorFor(model => model.CariKodu, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.CariKodu, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="control-label " for="CurrentName">@Deneme.Resource.CurrentName * </label>
+
+                @Html.EditorFor(model => model.CariAdı, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.CariAdı, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label " for="CurrentType">@Deneme.Resource.CurrentType * </label>
+
+                @Html.EditorFor(model => model.CariTipi, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.CariTipi, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label class="control-label " for="TaxOffice">@Deneme.Resource.TaxOffice * </label>
+
+                @Html.EditorFor(model => model.VergiDairesi, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.VergiDairesi, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="control-label " for="TaxNumber">@Deneme.Resource.TaxNumber * </label>
+
+                @Html.EditorFor(model => model.VergiNo, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.VergiNo, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="control-label " for="IdentificationNumber">@Deneme.Resource.IdentificationNumber * </label>
+
+                @Html.EditorFor(model => model.TcKimlikNo, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.TcKimlikNo, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="control-label " for="Email1">@Deneme.Resource.Email1 * </label>
+
+                @Html.EditorFor(model => model.Email1, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.Email1, "", new { @class = "text-danger" })
+
+
+            </div>
+            <div class="form-group col-md-6">
+                <label class="control-label " for="Email2">@Deneme.Resource.Email2 * </label>
+
+                @Html.EditorFor(model => model.Email2, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.Email2, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="control-label " for="PhoneNumber">@Deneme.Resource.PhoneNumber * </label>
+
+                @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="control-label " for="CurrentState">@Deneme.Resource.CurrentState * </label>
+
+                @Html.EditorFor(model => model.Cariİl, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.Cariİl, "", new { @class = "text-danger" })
+
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-10">
+                <label class="control-label " for="Address">@Deneme.Resource.Address * </label>
+
+                @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-2">
+                <label class="control-label " for="ExchangeType">@Deneme.Resource.ExchangeType * </label>
+
+                @Html.EditorFor(model => model.DövizTipi, new { htmlAttributes = new { @class = "required form-control" } })
+                @Html.ValidationMessageFor(model => model.DövizTipi, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group text-center m-t-15 ">
+            <button class="btn btn-danger btn-block text-uppercase waves-effect waves-light"
+                    type="submit">
+                @Deneme.Resource.Save
+            </button>
+        </div>
+
+    </form>
+</div>
+
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d8e23bea6b904fc4b5073887bfc76c27" Name="Diagram1">
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.CariBilgileri" Width="1.5" PointX="1.125" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.CariBilgileriExcel" Width="1.875" PointX="2.875" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.FaturaBilgileri" Width="1.5" PointX="1.125" PointY="2.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.FaturaBilgileriExcel" Width="1.875" PointX="2.875" PointY="2.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.Şablon_CariBilgileri" Width="1.75" PointX="5.25" PointY="4.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.Şablon_CariMutabakat" Width="1.875" PointX="1.125" PointY="4.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.Şablon_FaturaAktarım" Width="1.875" PointX="3.125" PointY="4.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.Company" Width="1.5" PointX="2.875" PointY="0.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.Şablon_Ba_BsMutabakat" Width="2" PointX="7.125" PointY="4.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.SiteUser" Width="1.5" PointX="1.125" PointY="1.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.SubUser" Width="1.5" PointX="2.875" PointY="1.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.Yetki" Width="1.5" PointX="1.125" PointY="0.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.CariMutabakatExcel" Width="1.875" PointX="2.875" PointY="3.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.CariMutabakkat" Width="1.5" PointX="1.125" PointY="3.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.CariMutabakatDetay" Width="1.875" PointX="5" PointY="3.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.BaBsMutabakat" Width="1.5" PointX="1.125" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.BaBsMutabakatDetay" Width="1.875" PointX="5" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.BaBsMutabakatBilgileri" Width="2" PointX="7.125" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="YirmibesYazilimMutabakatModel.BaBsMutabakatExcel" Width="1.875" PointX="2.875" PointY="4" IsExpanded="false" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

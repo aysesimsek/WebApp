@@ -1,0 +1,40 @@
+﻿
+@model Deneme.Models.BaBsMutabakat
+@{
+
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("Add_BaBsMY", "Reconciliation", FormMethod.Post, new {onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.MutabakatId)
+    <div class="block push-bit">
+        <div class="form-horizontal">
+            <div class="login-title text-center alert-success">
+                <h3> <strong>@Deneme.Resource.AddReconciliationDetails </strong></h3>
+            </div>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.TcKimlikNo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-xs-12">
+                    @Html.DropDownList("FaturaBilgileriId", "Fatura seçiniz.")
+                    @*@Html.DropDownList("ŞablonAdı", new SelectList(ŞablonBilgileri), "Şablon adı seçiniz", new { @class = "form-control" })*@
+                    @*@Html.ValidationMessageFor(model => model.FaturaId, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+            <div class="form-group form-actions">
+
+                <div class="col-xs-12  text-center">
+
+                    <input type="submit" value="Submit" class="btn btn-sm btn-primary" />
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+}

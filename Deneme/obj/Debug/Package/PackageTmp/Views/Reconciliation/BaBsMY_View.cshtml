@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "Mutabakatlar";
+}
+<br />
+<a class="btn btn-success" style="margin-bottom:10px;" onclick="PopupForm('@Url.Action("Add_BaBsMY", "Reconciliation")')"><i class="fa fa-plus"></i> Faturadan Mutabakat Oluştur</a>
+<a class="btn btn-warning" style="margin-bottom:10px;" onclick="PopupForm('@Url.Action("Add_BaBsExcel", "Reconciliation")')"><i class="fa fa-plus"></i> Excelden Mutabakat Oluştur</a>
+<table id="BillTemplate" class="display nowrap table table-striped table-bordered" style="width:100%;">
+    <thead>
+        <tr>
+            <th>@Deneme.Resource.InvoiceInformations</th>
+            <th>@Deneme.Resource.CurrentNumber</th>
+            <th>@Deneme.Resource.DocumentNumber</th>
+
+            <th></th>
+        </tr>
+    </thead>
+</table>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        var Popup, dataTable;
+           $(document).ready(function () {
+               dataTable = $("#BillTemplate").DataTable({
+                   responsive: {
+                       details: {
+                           renderer: function (api, rowIdx, columns) {
+                               var data = $.map(columns, function (col, i) {
+                                   return col.hidden ?
+                                       '<tr data-dt-row="' + col.rowIndex + '" data-dt-column="' + col.columnIndex + '">' +
+                                       '<td>' + col.title + ':' + ' </td> ' +
+                                       '<td>' + col.data + ' </td>' +
+                                       '</tr>' :
+                                       '';
+                               }).join('');
+
+                               return data ?
+                                   $('<table/>').append(data) :
+                                   false;
+                           }
+                       }
+                   },
+                "ajax": {
+                    "url": "/Reconciliation/BaBsMY",
+                    "type": "GET",
+                    "datatype": "json",
+                    "style":"margin-left:50px"
+                },
+                "columns": [
+
+                    { "data": "FaturaBilgileri" },
+                    { "data": "CariSayısı" },
+                    { "data": "BelgeSayısı" },
+                    { "data":"MutabakatId" , "render" : function (data) {
+                        return "<a class='btn btn-info btn-sm' onclick=Show(" + data + ")><i class='fa fa-eye'></i> @Deneme.Resource.Show</a><a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete(" + data + ")><i class='fa fa-trash'></i> @Deneme.Resource.Delete</a><a class='btn btn-success btn-sm' style='margin-left:5px' onclick=SendMail(" + data + ")><i class='fa fa-send'></i> @Deneme.Resource.SendMail</a>";
+                    },
+                        "destroy": true,
+                        "orderable": false,
+                        "searchable":false,
+                        "width":"150px"
+                    }
+
+                ],
+                "language": {
+
+                    "info": "@Deneme.Resource.Info",
+                    "infoEmpty": "@Deneme.Resource.InfoEmpty",
+                    "infoFiltered": "@Deneme.Resource.InfoFiltered",
+                    "lengthMenu": "@Deneme.Resource.LengthMenu",
+                    "loadingRecords": "@Deneme.Resource.LoadingRecords",
+                    "zeroRecords": "@Deneme.Resource.ZeroRecords",
+                    "search": "@Deneme.Resource.Search",
+                    "emptyTable": "@Deneme.Resource.EmptyTable1 <b>@Deneme.Resource.AddNew</b>  @Deneme.Resource.EmptyTable2",
+                    "paginate": {
+
+                        "next": "@Deneme.Resource.Next",
+                        "previous": "@Deneme.Resource.Previous"
+                    },
+                }
+            });
+        });
+
+        function PopupForm(url) {
+            var formDiv = $('<div/>');
+            $.get(url)
+            .done(function (response) {
+                formDiv.html(response);
+
+                Popup = formDiv.dialog({
+                    autoOpen: true,
+                    resizable: false,
+                    title: '@Deneme.Resource.Reconciliation',
+                    height: 300,
+                    width: 400,
+                    close: function () {
+                        Popup.dialog('destroy').remove();
+                    }
+
+                });
+            });
+        }
+
+        function SubmitForm(form) {
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: form.action,
+                    data: $(form).serialize(),
+                    success: function (data) {
+                        if (data.success) {
+                            Popup.dialog('close');
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+
+        function Delete(id) {
+            if(confirm('@Deneme.Resource.DeleteConfirmation'))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete_BaBsMY", "Reconciliation")/' + id,
+                    success: function (data) {
+                        if (data.success)
+                        {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+
+                });
+            }
+        }
+        
+        function Show(id) {
+
+            window.location.href = '/Reconciliation/Show_BaBsMY/' + id;
+        }
+
+        function SendMail(id) {
+
+                   $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("SendMail_BaBsMY", "Reconciliation")/' + id,
+                    success: function (data) {
+                        if (data.success)
+                        {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+
+            });
+
+        }
+
+    </script>
+}

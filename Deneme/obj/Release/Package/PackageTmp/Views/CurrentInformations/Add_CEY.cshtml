@@ -1,0 +1,62 @@
+﻿@model Deneme.Models.CariBilgileri
+@{
+
+    Layout = null;
+}
+<html>
+<head>
+
+</head>
+<body>
+@using (Html.BeginForm("Add_CEY", "CurrentInformations", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.CariBilgileriId)
+    <div class="block push-bit">
+        <p class="text-info m-b-15 font-13">
+            @Deneme.Resource.AddCurrentExcel
+        </p>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+
+                    @Html.DropDownList("ŞablonId", null, Deneme.Resource.SelectTemplateName, new
+               {
+                   @class = "form-control",
+                   @required = "",
+                   oninvalid = "this.setCustomValidity(" + "'" + @Deneme.Resource.Required + "'" + ")",
+                   oninput = "setCustomValidity('')"
+               })
+                    @Html.ValidationMessageFor(model => model.ŞablonId, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group m-b-0 col-md-12">
+
+                    <input type="file" data-buttonText="@Deneme.Resource.ChooseFile" class="filestyle" data-placeholder="@Deneme.Resource.NoFile" name="excelfile" data-buttonname="btn-danger" data-iconname="fa fa-cloud-upload"required oninvalid = "this.setCustomValidity('@Deneme.Resource.SelectFile')",
+               oninput = "setCustomValidity('')">
+                </div>
+            </div>
+            <div class="form-group  m-t-15">
+                <div class=" progress progress-bar-info" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" id="progressbar" style="position: relative; display: none">
+                    <span class="sr-only" style="position: center; left: 35%; top: 50%" id="progressBar-label">
+                        @Deneme.Resource.Uploading
+                    </span>
+                </div>
+            </div>
+            <div class="form-group text-center m-t-15 ">
+                <button class="btn btn-danger btn-block text-uppercase waves-effect waves-light"
+                        type="submit">
+                    @Deneme.Resource.Save
+                </button>
+            </div>
+
+        </form>
+    </div>
+    <script src="~/assets/js/bootstrap-filestyle.min.js"></script>
+}
+</body>
+</html>

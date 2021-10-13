@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YirmibesYazilimMutabakatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="YirmibesYazilimMutabakatEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CariBilgileri" EntityType="YirmibesYazilimMutabakatModel.CariBilgileri" />
+    <EntitySet Name="FaturaBilgileri" EntityType="YirmibesYazilimMutabakatModel.FaturaBilgileri" />
+    <EntitySet Name="Şablon_CariBilgileri" EntityType="YirmibesYazilimMutabakatModel.Şablon_CariBilgileri" />
+    <EntitySet Name="Şablon_CariMutabakat" EntityType="YirmibesYazilimMutabakatModel.Şablon_CariMutabakat" />
+    <EntitySet Name="Şablon_FaturaAktarım" EntityType="YirmibesYazilimMutabakatModel.Şablon_FaturaAktarım" />
+    <EntitySet Name="Company" EntityType="YirmibesYazilimMutabakatModel.Company" />
+    <EntitySet Name="Şablon_Ba_BsMutabakat" EntityType="YirmibesYazilimMutabakatModel.Şablon_Ba_BsMutabakat" />
+    <EntitySet Name="SiteUser" EntityType="YirmibesYazilimMutabakatModel.SiteUser" />
+    <EntitySet Name="SubUser" EntityType="YirmibesYazilimMutabakatModel.SubUser" />
+    <EntitySet Name="CariMutabakkat" EntityType="YirmibesYazilimMutabakatModel.CariMutabakkat" />
+    <EntitySet Name="BaBsMutabakatBilgileri" EntityType="YirmibesYazilimMutabakatModel.BaBsMutabakatBilgileri" />
+    <EntitySet Name="BaBsMutabakatDetay" EntityType="YirmibesYazilimMutabakatModel.BaBsMutabakatDetay" />
+    <EntitySet Name="CariMutabakatDetay" EntityType="YirmibesYazilimMutabakatModel.CariMutabakatDetay" />
+    <EntitySet Name="BaBsMutabakat" EntityType="YirmibesYazilimMutabakatModel.BaBsMutabakat" />
+    <EntitySet Name="Yetki" EntityType="YirmibesYazilimMutabakatModel.Yetki" />
+    <EntitySet Name="BaBsMutabakatExcel" EntityType="YirmibesYazilimMutabakatModel.BaBsMutabakatExcel" />
+    <EntitySet Name="CariBilgileriExcel" EntityType="YirmibesYazilimMutabakatModel.CariBilgileriExcel" />
+    <EntitySet Name="CariMutabakatExcel" EntityType="YirmibesYazilimMutabakatModel.CariMutabakatExcel" />
+    <EntitySet Name="FaturaBilgileriExcel" EntityType="YirmibesYazilimMutabakatModel.FaturaBilgileriExcel" />
+  </EntityContainer>
+  <EntityType Name="CariBilgileri">
+    <Key>
+      <PropertyRef Name="CariBilgileriId" />
+    </Key>
+    <Property Name="CariBilgileriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="ŞablonId" Type="Int32" Nullable="false" />
+    <Property Name="ExcelAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OluşturmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ŞablonAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FaturaBilgileri">
+    <Key>
+      <PropertyRef Name="FaturaId" />
+    </Key>
+    <Property Name="FaturaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="ŞablonId" Type="Int32" Nullable="false" />
+    <Property Name="Ay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Yıl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FaturaTipi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ŞablonAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExcelAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OluşturmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Şablon_CariBilgileri">
+    <Key>
+      <PropertyRef Name="ŞablonId" />
+    </Key>
+    <Property Name="ŞablonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="ŞablonAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaşlangıçSatırı" Type="Int32" />
+    <Property Name="CariKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiDairesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TcKimlikNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cariİl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DövizTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OluşturmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Şablon_CariMutabakat">
+    <Key>
+      <PropertyRef Name="ŞablonId" />
+    </Key>
+    <Property Name="ŞablonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="ŞablonAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaşlangıçSatırı" Type="Int32" />
+    <Property Name="CariKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiDairesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KdvHariçTutar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KdvTutarı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeNumarası" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OluşturmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Şablon_FaturaAktarım">
+    <Key>
+      <PropertyRef Name="ŞablonId" />
+    </Key>
+    <Property Name="ŞablonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="ŞablonAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaşlangıçSatırı" Type="Int32" />
+    <Property Name="CariKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DövizTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiDairesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TcKimlikNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KdvHariçTutar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeNumarası" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OluşturmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxNo_TcNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Şablon_Ba_BsMutabakat">
+    <Key>
+      <PropertyRef Name="ŞablonId" />
+    </Key>
+    <Property Name="ŞablonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="ŞablonAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaşlangıçSatırı" Type="Int32" />
+    <Property Name="CariKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TcKimlikNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KdvHariçTutar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeSayısı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OluşturmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SiteUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsValid" Type="Boolean" />
+    <Property Name="ActivationLink" Type="Guid" />
+    <Property Name="ResetPasswordCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SubUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Yetkili" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CariMutabakkat">
+    <Key>
+      <PropertyRef Name="CariMutabakatId" />
+    </Key>
+    <Property Name="CariMutabakatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="ŞablonId" Type="Int32" Nullable="false" />
+    <Property Name="Ay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Yıl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ŞablonAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExcelAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OluşturmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariSayısı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeSayısı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BaBsMutabakatBilgileri">
+    <Key>
+      <PropertyRef Name="MutabakatBilgileriId" />
+    </Key>
+    <Property Name="MutabakatBilgileriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="ŞablonId" Type="Int32" Nullable="false" />
+    <Property Name="Ay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Yıl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FaturaTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ŞablonAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExcelAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OluşturmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BaBsMutabakatDetay">
+    <Key>
+      <PropertyRef Name="MutabakatDetayId" />
+    </Key>
+    <Property Name="MutabakatDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MutabakatId" Type="Int32" Nullable="false" />
+    <Property Name="CariKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeSayısı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KdvHariçTutar" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MailDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OnayDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MailDetay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MessageID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MutabakatKabulLink" Type="Guid" />
+    <Property Name="MutabakatRetLink" Type="Guid" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CariMutabakatDetay">
+    <Key>
+      <PropertyRef Name="CariMutabakatDetayId" />
+    </Key>
+    <Property Name="CariMutabakatDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CariMutabakatId" Type="Int32" Nullable="false" />
+    <Property Name="CariKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeSayısı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KdvHariçTutar" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="KdvTutarı" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MailDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OnayDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MailDetay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MessageID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MutabakatKabulLink" Type="Guid" />
+    <Property Name="MutabakatRetLink" Type="Guid" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BaBsMutabakat">
+    <Key>
+      <PropertyRef Name="MutabakatId" />
+    </Key>
+    <Property Name="MutabakatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="FaturaBilgileriId" Type="Int32" Nullable="false" />
+    <Property Name="FaturaBilgileri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariSayısı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeSayısı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OluşturmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Yetki">
+    <Key>
+      <PropertyRef Name="YetkiID" />
+    </Key>
+    <Property Name="YetkiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="isDefault" Type="Boolean" />
+    <Property Name="Yetkiler" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BaBsMutabakatExcel">
+    <Key>
+      <PropertyRef Name="MutabakatExcelId" />
+    </Key>
+    <Property Name="CariKodu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TcKimlikNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="KdvHariçTutar" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BelgeSayısı" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MutabakatBilgileriId" Type="Int32" Nullable="false" />
+    <Property Name="MutabakatExcelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="CariBilgileriExcel">
+    <Key>
+      <PropertyRef Name="CariId" />
+    </Key>
+    <Property Name="CariKodu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CariTipi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VergiDairesi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="TcKimlikNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Email1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cariİl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DövizTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CariBilgileriId" Type="Int32" Nullable="false" />
+    <Property Name="CariId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="CariMutabakatExcel">
+    <Key>
+      <PropertyRef Name="CariMutabakatExcelId" />
+    </Key>
+    <Property Name="CariKodu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VergiDairesi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="KdvHariçTutar" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="KdvTutarı" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BelgeTarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeNumarası" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CariMutabakatId" Type="Int32" Nullable="false" />
+    <Property Name="CariMutabakatExcelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="FaturaBilgileriExcel">
+    <Key>
+      <PropertyRef Name="FaturaExcelId" />
+    </Key>
+    <Property Name="CariKodu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CariAdı" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DövizTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VergiDairesi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TcKimlikNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="KdvHariçTutar" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BelgeTarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BelgeNumarası" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FaturaBilgileriId" Type="Int32" Nullable="false" />
+    <Property Name="FaturaExcelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

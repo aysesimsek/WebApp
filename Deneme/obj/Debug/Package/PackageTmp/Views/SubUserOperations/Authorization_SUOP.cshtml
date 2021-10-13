@@ -1,0 +1,108 @@
+﻿
+@model Deneme.Models.Yetki
+@{
+    /**/
+
+    /**/
+
+    Layout = null;
+}
+
+@using (Html.BeginForm("Authorization_SUOP", "SubUserOperations", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.YetkiID)
+ 
+
+    <div class="form-horizontal">sa
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+
+            <div class="col-xs-12">
+
+                <h5> <strong>Ba İşlemleri </strong></h5>
+
+
+                @Html.CheckBoxFor(m => m.BaOluştur)  Oluştur &nbsp
+
+
+
+                @Html.CheckBoxFor(m => m.BaDüzenle)  Düzenle &nbsp
+
+
+
+                @Html.CheckBoxFor(m => m.BaMailGönder)  Mail Gönder &nbsp
+
+
+
+                @Html.CheckBoxFor(m => m.BaSil)  Sil &nbsp
+
+
+                @Html.CheckBoxFor(m => m.BaSmsGönder)  Sms Gönder &nbsp
+
+            </div>
+
+            <hr />
+
+            <div class="col-xs-12">
+
+                <h5> <strong>Bs İşlemleri </strong></h5>
+
+                @Html.CheckBoxFor(m => m.BsOluştur)  Oluştur &nbsp
+
+
+
+                @Html.CheckBoxFor(m => m.BsDüzenle)  Düzenle &nbsp
+
+
+                @Html.CheckBoxFor(m => m.BsMailGönder)  Mail Gönder &nbsp
+
+
+
+                @Html.CheckBoxFor(m => m.BsSil)  Sil &nbsp
+
+
+
+                @Html.CheckBoxFor(m => m.BsSmsGönder)  Sms Gönder &nbsp
+
+            </div>
+
+            <hr />
+
+            <div class="col-xs-12">
+
+                <h5> <strong>Cari İşlemleri </strong></h5>
+
+                @Html.CheckBoxFor(m => m.CariOluştur)  Oluştur &nbsp
+
+
+                @Html.CheckBoxFor(m => m.CariDüzenle)  Düzenle &nbsp
+
+
+
+                @Html.CheckBoxFor(m => m.CariMailGönder)  Mail Gönder &nbsp
+
+
+
+                @Html.CheckBoxFor(m => m.CariSil)  Sil &nbsp
+
+
+
+                @Html.CheckBoxFor(m => m.CariSmsGönder)  Sms Gönder &nbsp
+
+            </div>
+            <div class="col-xs-12">
+                @Html.DropDownList("CompanyId", Deneme.Resource.SelectTemplateName)
+                @Html.ValidationMessageFor(model => model.CompanyId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12 text-center">
+                <input type="submit" value="@Deneme.Resource.Save" class="btn btn-default btn-primary" />
+            </div>
+        </div>
+    </div>
+
+}

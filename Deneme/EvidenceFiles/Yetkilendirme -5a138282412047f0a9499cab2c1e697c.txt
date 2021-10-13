@@ -1,0 +1,17 @@
+﻿Ba Oluştur --------- 0
+Ba Düzenle --------- 1
+Ba Mail Gönder ----- 2
+Ba Sil ------------- 3
+Ba Sms Gönder ------ 4
+
+Bs Oluştur --------- 5
+Bs Düzenle --------- 6
+Bs Mail Gönder ----- 7
+Bs Sil ------------- 8
+Bs Sms Gönder ------ 9
+
+Cari Oluştur ------- 10
+Cari Düzenle ------- 11
+Cari Mail Gönder --- 12
+Cari Sil ----------- 13
+Cari Sms Gönder ---- 14

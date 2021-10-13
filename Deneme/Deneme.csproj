@@ -1,0 +1,504 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.8.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.8.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E48BC90-6948-49D2-A51B-5B9738CFCCE0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Deneme</RootNamespace>
+    <AssemblyName>Deneme</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.4.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.4.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.4.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.4.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="mailinblue">
+      <HintPath>..\..\..\..\Desktop\mailinblue.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="Rebus, Version=4.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rebus.4.2.1\lib\net45\Rebus.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.5\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.5\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\icons.css" />
+    <Content Include="assets\css\images\ui-icons_444444_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_555555_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_777777_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="assets\css\jquery-ui.css" />
+    <Content Include="assets\css\jquery-ui.min.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\fonts\dripicons-v2.svg" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\ionicons.svg" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="assets\fonts\Simple-Line-Icons.svg" />
+    <Content Include="assets\fonts\themify.svg" />
+    <Content Include="assets\fonts\typicons.svg" />
+    <Content Include="assets\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="assets\images\Adsız.png" />
+    <Content Include="assets\images\AdsızMM.png" />
+    <Content Include="assets\images\beyaz.png" />
+    <Content Include="assets\images\favicon-16x16.png" />
+    <Content Include="assets\images\favicon-32x32.png" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\Logo-sm.png" />
+    <Content Include="assets\images\bg.png" />
+    <Content Include="assets\images\design-publication-1-22868-0-600px.jpg" />
+    <Content Include="assets\images\headline.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\users\asd.jpg" />
+    <Content Include="assets\js\bootstrap-filestyle.js" />
+    <Content Include="assets\js\bootstrap-filestyle.min.js" />
+    <Content Include="assets\js\bootstrap.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\jquery-1.12.4.js" />
+    <Content Include="assets\js\jquery-1.12.4.min.js" />
+    <Content Include="assets\js\jquery-ui-1.12.1.js" />
+    <Content Include="assets\js\jquery-ui-1.12.1.min.js" />
+    <Content Include="assets\js\jquery.app.js" />
+    <Content Include="assets\js\jquery.core.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.scrollTo.min.js" />
+    <Content Include="assets\js\jquery.slimscroll.js" />
+    <Content Include="assets\js\jquery.validate.js" />
+    <Content Include="assets\js\jquery.validate.min.js" />
+    <Content Include="assets\js\jquery.validate.unobtrusive.js" />
+    <Content Include="assets\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="assets\js\modernizr.min.js" />
+    <Content Include="assets\js\notify.min.js" />
+    <Content Include="assets\js\popper.min.js" />
+    <Content Include="assets\js\waves.js" />
+    <Content Include="assets\js\wow.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="EmailTemplate\Activation.cshtml" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="EmailTemplate\Password.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="EmailTemplate\Mutabakat.cshtml" />
+    <Content Include="assets\css\icons.css.map" />
+    <Content Include="assets\css\style.css.map" />
+    <Content Include="assets\fonts\dripicons-v2.eot" />
+    <Content Include="assets\fonts\dripicons-v2.ttf" />
+    <Content Include="assets\fonts\dripicons-v2.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\ionicons.eot" />
+    <Content Include="assets\fonts\ionicons.ttf" />
+    <Content Include="assets\fonts\ionicons.woff" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="assets\fonts\Simple-Line-Icons.eot" />
+    <Content Include="assets\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="assets\fonts\Simple-Line-Icons.woff" />
+    <Content Include="assets\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="assets\fonts\themify.eot" />
+    <Content Include="assets\fonts\themify.ttf" />
+    <Content Include="assets\fonts\themify.woff" />
+    <Content Include="assets\fonts\typicons.eot" />
+    <Content Include="assets\fonts\typicons.less" />
+    <Content Include="assets\fonts\typicons.ttf" />
+    <Content Include="assets\fonts\typicons.woff" />
+    <Content Include="assets\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="assets\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="assets\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="assets\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="assets\js\Chart.js" />
+    <Content Include="assets\js\Chart.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaBsReconciliationController.cs" />
+    <Compile Include="Controllers\CurrentEvidenceFileController.cs" />
+    <Compile Include="Controllers\CompanyOperationsController.cs" />
+    <Compile Include="Controllers\CurrentInformationsTemplateController.cs" />
+    <Compile Include="Controllers\CurrentInformationsController.cs" />
+    <Compile Include="Controllers\CurrentReconciliationController.cs" />
+    <Compile Include="Controllers\CurrentReconciliationTemplateController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\EvidenceFileController.cs" />
+    <Compile Include="Controllers\InvoiceTemplateController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\ReconciliationController.cs" />
+    <Compile Include="Controllers\ReconciliationTemplateController.cs" />
+    <Compile Include="Controllers\SiteUserController.cs" />
+    <Compile Include="Controllers\SubUserOperationsController.cs" />
+    <Compile Include="Controllers\UserOperationsController.cs" />
+    <Compile Include="Crypto.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaBsMutabakat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaBsMutabakatBilgileri.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaBsMutabakatDetay.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaBsMutabakatExcel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CariBilgileri.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CariBilgileriExcel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CariMutabakatDetay.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CariMutabakatExcel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CariMutabakkat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EvidenceFile.cs" />
+    <Compile Include="Models\Extended\BaBsMutabakatBilgileri.cs" />
+    <Compile Include="Models\Extended\FaturaBilgileri.cs" />
+    <Compile Include="Models\Extended\SubUser.cs" />
+    <Compile Include="Models\Extended\Yetki.cs" />
+    <Compile Include="Models\Extended\Şablon_Ba_BsMutabakat.cs" />
+    <Compile Include="Models\Extended\Şablon_CariBilgileri.cs" />
+    <Compile Include="Models\Extended\Şablon_CariMutabakat.cs" />
+    <Compile Include="Models\Extended\Şablon_FaturaAktarım.cs" />
+    <Compile Include="Models\FaturaBilgileri.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FaturaBilgileriExcel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Registration.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
+    <Compile Include="Models\SiteUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubUserModel.cs" />
+    <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\Yetki.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Şablon_Ba_BsMutabakat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Şablon_CariBilgileri.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Şablon_CariMutabakat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Şablon_FaturaAktarım.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBaseController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteLanguages.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\SiteUser\Registration.cshtml" />
+    <Content Include="Views\SiteUser\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\SiteUser\ForgotPassword.cshtml" />
+    <Content Include="Views\SiteUser\ResetPassword.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\InvoiceTemplate\FAS_View.cshtml" />
+    <Content Include="Views\InvoiceTemplate\AddOrEdit_FAS.cshtml" />
+    <Content Include="Views\CurrentReconciliationTemplate\CMS_View.cshtml" />
+    <Content Include="Views\CurrentReconciliationTemplate\AddOrEdit_CMS.cshtml" />
+    <Content Include="Views\CurrentInformationsTemplate\CBS_View.cshtml" />
+    <Content Include="Views\CurrentInformationsTemplate\AddOrEdit_CBS.cshtml" />
+    <Content Include="Views\ReconciliationTemplate\BBMS_View.cshtml" />
+    <Content Include="Views\ReconciliationTemplate\AddOrEdit_BBMS.cshtml" />
+    <Content Include="Views\CurrentInformations\CEY_View.cshtml" />
+    <Content Include="Views\CurrentInformations\Add_CEY.cshtml" />
+    <Content Include="Views\CurrentInformations\Show_CEY.cshtml" />
+    <Content Include="Views\Reconciliation\BaBsMY_View.cshtml" />
+    <Content Include="Views\Reconciliation\Add_BaBsMY.cshtml" />
+    <Content Include="Views\Reconciliation\Show_BaBsMY.cshtml" />
+    <Content Include="Views\Invoice\Add_FAEY.cshtml" />
+    <Content Include="Views\Invoice\FAEY_View.cshtml" />
+    <Content Include="Views\Invoice\Show_FAEY.cshtml" />
+    <Content Include="Views\CompanyOperations\COP_View.cshtml" />
+    <Content Include="Views\CompanyOperations\AddOrEdit_COP.cshtml" />
+    <Content Include="Views\UserOperations\UOP_View.cshtml" />
+    <Content Include="Views\UserOperations\Edit_UOP.cshtml" />
+    <Content Include="Views\UserOperations\ChangePassword.cshtml" />
+    <Content Include="Views\SubUserOperations\SUOP_View.cshtml" />
+    <Content Include="Views\SubUserOperations\AddorEdit_SUOP.cshtml" />
+    <Content Include="Views\SubUserOperations\Authorization_SUOP.cshtml" />
+    <Content Include="Views\CurrentReconciliation\Add_CR.cshtml" />
+    <Content Include="Views\CurrentReconciliation\CR_View.cshtml" />
+    <Content Include="Views\CurrentReconciliation\Show_CR.cshtml" />
+    <Content Include="Views\CurrentReconciliation\Detail_CR.cshtml" />
+    <Content Include="Views\CurrentInformations\Edit_CEY.cshtml" />
+    <Content Include="Views\CurrentInformations\Add_CEYDetail.cshtml" />
+    <Content Include="Views\BaBsReconciliation\BaBsExcel_View.cshtml" />
+    <Content Include="Views\BaBsReconciliation\Add_BaBsExcel.cshtml" />
+    <Content Include="Views\BaBsReconciliation\Show_BaBsExcel.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Views\EvidenceFile\AddEvidenceFile.cshtml" />
+    <Content Include="Views\EvidenceFile\AfterMailView.cshtml" />
+    <Content Include="Views\CurrentEvidenceFile\AddEvidenceFile.cshtml" />
+    <Content Include="Views\CurrentEvidenceFile\AfterMailView.cshtml" />
+    <Content Include="Views\CompanyOperations\SubCOP_View.cshtml" />
+    <Content Include="Views\SubUserOperations\Show_Auth.cshtml" />
+    <Content Include="Views\Error\Http404.cshtml" />
+    <Content Include="Views\Error\Http400.cshtml" />
+    <Content Include="Views\Error\Http403.cshtml" />
+    <Content Include="Views\Error\Http500.cshtml" />
+    <Content Include="Views\Error\Http503.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\" />
+    <Folder Include="EvidenceFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59358</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59358/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.8.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.8.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

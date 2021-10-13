@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account" xml:space="preserve">
+    <value>Hesap </value>
+  </data>
+  <data name="AccountNotFound" xml:space="preserve">
+    <value>Böyle bir mail adresi bulunamadı.</value>
+  </data>
+  <data name="ActivatedAccount" xml:space="preserve">
+    <value>Hesabınız başarıyla aktifleştirildi. Giriş yapmak için tıklayınız :</value>
+  </data>
+  <data name="Adres" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="AlertPasswordMail" xml:space="preserve">
+    <value>Şifrenizi yenilemek için aşağıdaki butona tıklayınız.</value>
+  </data>
+  <data name="Ay" xml:space="preserve">
+    <value>Ay</value>
+  </data>
+  <data name="BackToLogin" xml:space="preserve">
+    <value>Giriş sayfasına geri dön.</value>
+  </data>
+  <data name="BaşlangıçSatırı" xml:space="preserve">
+    <value>Başlangıç Satırı</value>
+  </data>
+  <data name="BelgeNumarası" xml:space="preserve">
+    <value>Belge Numarası</value>
+  </data>
+  <data name="BelgeSayısı" xml:space="preserve">
+    <value>Belge Sayısı</value>
+  </data>
+  <data name="BelgeTarihi" xml:space="preserve">
+    <value>Belge Tarihi</value>
+  </data>
+  <data name="CariAdı" xml:space="preserve">
+    <value>Cari Adı</value>
+  </data>
+  <data name="CariKodu" xml:space="preserve">
+    <value>Cari Kodu</value>
+  </data>
+  <data name="Cariİl" xml:space="preserve">
+    <value>Cari İl</value>
+  </data>
+  <data name="CompanyTitle" xml:space="preserve">
+    <value>Şirket Ünvanı</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>*Şifre eşleşmemektedir.</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Şifreyi Yinele</value>
+  </data>
+  <data name="CreateUserAccount" xml:space="preserve">
+    <value>Kullanıcı Hesabı Oluşturunuz.</value>
+  </data>
+  <data name="CurrentInformations" xml:space="preserve">
+    <value>Cari Bilgileri</value>
+  </data>
+  <data name="CurrentInformationTemplate" xml:space="preserve">
+    <value>Cari Bigi Şablonu</value>
+  </data>
+  <data name="CurrentReconciliationTemplate" xml:space="preserve">
+    <value>Cari Mutabakat Şablonu</value>
+  </data>
+  <data name="DövizTipi" xml:space="preserve">
+    <value>Döviz Tipi</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-posta</value>
+  </data>
+  <data name="Email1" xml:space="preserve">
+    <value>Email1</value>
+  </data>
+  <data name="Email2" xml:space="preserve">
+    <value>Email2</value>
+  </data>
+  <data name="EmailExist" xml:space="preserve">
+    <value>Bu email adresi zaten kullanılmaktadır.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hata!</value>
+  </data>
+  <data name="FaturaTipi" xml:space="preserve">
+    <value>Fatura Tipi</value>
+  </data>
+  <data name="FaturaTipiString" xml:space="preserve">
+    <value>FaturaTipi</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Şifremi Unuttum</value>
+  </data>
+  <data name="HasBeenSent" xml:space="preserve">
+    <value> adresine gönderildi.</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Anasayfa</value>
+  </data>
+  <data name="InvalidCredential" xml:space="preserve">
+    <value>Geçersiz kimlik bilgisi.</value>
+  </data>
+  <data name="InvalidRequest" xml:space="preserve">
+    <value>Geçersiz İşlem.</value>
+  </data>
+  <data name="Invoices" xml:space="preserve">
+    <value>Faturalar</value>
+  </data>
+  <data name="InvoiceTransferTemplate" xml:space="preserve">
+    <value>Fatura Aktarım Şablonu</value>
+  </data>
+  <data name="KdvHariçTutar" xml:space="preserve">
+    <value>Kdv Hariç Tutar</value>
+  </data>
+  <data name="KdvTutarı" xml:space="preserve">
+    <value>Kdv Tutarı</value>
+  </data>
+  <data name="LanguageSettings" xml:space="preserve">
+    <value>Dil Ayarları</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Giriş Yap</value>
+  </data>
+  <data name="LoginHeader" xml:space="preserve">
+    <value>Giriş Yapın</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Çıkış Yap</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Yeni Şifre</value>
+  </data>
+  <data name="TemplateCreationDate" xml:space="preserve">
+    <value>Oluşturma Tarihi</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Şifre</value>
+  </data>
+  <data name="PasswordMinLength" xml:space="preserve">
+    <value>*Şifre en az 6 karakterden oluşmalı.</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>GSM</value>
+  </data>
+  <data name="PhoneNumberInvalid" xml:space="preserve">
+    <value>Geçersiz telefon numarası.</value>
+  </data>
+  <data name="Please" xml:space="preserve">
+    <value>Lütfen</value>
+  </data>
+  <data name="Reconciliation" xml:space="preserve">
+    <value>Ba-Bs Mutabakat</value>
+  </data>
+  <data name="ReconciliationTemplate" xml:space="preserve">
+    <value>Ba-Bs Mutabakat Şablonu</value>
+  </data>
+  <data name="RegDone" xml:space="preserve">
+    <value>Kayıt işlemi başarıyla tamamlandı. Hesap aktifleştirme linki </value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Kayıt Ol</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Beni Hatırla</value>
+  </data>
+  <data name="Reminder1" xml:space="preserve">
+    <value>Zaten bir kullanıcı hesabım var</value>
+  </data>
+  <data name="Reminder2" xml:space="preserve">
+    <value>Kullanıcı hesabım yok</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>*Bu alan boş bırakılamaz.</value>
+  </data>
+  <data name="ResetHeader" xml:space="preserve">
+    <value>Şifreyi sıfırlama bağlantısı için bir mail adresi giriniz.</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Şifreyi Sıfırla</value>
+  </data>
+  <data name="ResetPasswordLink" xml:space="preserve">
+    <value>Parola sıfırlama linki mail adresinize gönderilmiştir.</value>
+  </data>
+  <data name="ResetPasswordMailButton" xml:space="preserve">
+    <value>Şifremi Sıfırla</value>
+  </data>
+  <data name="StartLine" xml:space="preserve">
+    <value>Başlangıç Satırı</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="TaxNumber" xml:space="preserve">
+    <value>Vergi No.</value>
+  </data>
+  <data name="TaxNumberMinLength" xml:space="preserve">
+    <value>*Vergi numarası 10 haneden oluşmalı.</value>
+  </data>
+  <data name="TaxOffice" xml:space="preserve">
+    <value>Vergi Dairesi</value>
+  </data>
+  <data name="TcKimlikNo" xml:space="preserve">
+    <value>Tc Kimlik Numarası</value>
+  </data>
+  <data name="Telefon" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="TemplateName" xml:space="preserve">
+    <value>Şablon Adı</value>
+  </data>
+  <data name="TemplateSettings" xml:space="preserve">
+    <value>Şablon Ayarları</value>
+  </data>
+  <data name="TemplateType" xml:space="preserve">
+    <value>Şablon Tipi</value>
+  </data>
+  <data name="UpdatedPassword" xml:space="preserve">
+    <value>Yeni şifre başarıyla güncellendi.</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>İsim Soyisim</value>
+  </data>
+  <data name="VergiDairesi" xml:space="preserve">
+    <value>Vergi Dairesi</value>
+  </data>
+  <data name="VergiNo" xml:space="preserve">
+    <value>Vergi Numarası</value>
+  </data>
+  <data name="VerifyEmail" xml:space="preserve">
+    <value>Lütfen e-posta adresinizi doğrulayınız.</value>
+  </data>
+  <data name="Yıl" xml:space="preserve">
+    <value>Yıl</value>
+  </data>
+  <data name="ŞablonAdı" xml:space="preserve">
+    <value>Şablon Adı</value>
+  </data>
+  <data name="DialogCurrentDetails" xml:space="preserve">
+    <value>Cari Bilgileri Ekle</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Ekle</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="EmptyTable1" xml:space="preserve">
+    <value>Veri bulunamadı, Lütfen </value>
+  </data>
+  <data name="EmptyTable2" xml:space="preserve">
+    <value>butonuna tıklayınız.</value>
+  </data>
+  <data name="Entries" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ExcelName" xml:space="preserve">
+    <value>Excel Adı</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Sonraki</value>
+  </data>
+  <data name="OluşturmaTarihi" xml:space="preserve">
+    <value>Oluşturma Tarihi</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Önceki</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara:</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Göster</value>
+  </data>
+  <data name="Uploading" xml:space="preserve">
+    <value>Yükleniyor...</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="CurrentCode" xml:space="preserve">
+    <value>Cari Kodu</value>
+  </data>
+  <data name="CurrentName" xml:space="preserve">
+    <value>Cari Adı</value>
+  </data>
+  <data name="CurrentState" xml:space="preserve">
+    <value>Cari İl</value>
+  </data>
+  <data name="CurrentType" xml:space="preserve">
+    <value>Cari Tipi</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Sectiğiniz kaydı silmek istediğinize emin misiniz ?</value>
+  </data>
+  <data name="DocumentDate" xml:space="preserve">
+    <value>Belge Tarihi</value>
+  </data>
+  <data name="DocumentNumber" xml:space="preserve">
+    <value>Belge Sayısı</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="ExchangeType" xml:space="preserve">
+    <value>DövizTipi</value>
+  </data>
+  <data name="IdentificationNumber" xml:space="preserve">
+    <value>Tc Kimlik No</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>_TOTAL_ adet girişten _START_ ile _END_ arasındakiler gösteriliyor</value>
+  </data>
+  <data name="InfoEmpty" xml:space="preserve">
+    <value>0 adet kayıttan 0 ile 0 arasındakiler gösteriliyor</value>
+  </data>
+  <data name="InfoFiltered" xml:space="preserve">
+    <value>(_MAX_ kayıttan filtrelenmiş)</value>
+  </data>
+  <data name="InvoiceType" xml:space="preserve">
+    <value>Fatura Tipi</value>
+  </data>
+  <data name="LengthMenu" xml:space="preserve">
+    <value>Sayfa başına _MENU_ adet kayıt göster</value>
+  </data>
+  <data name="LoadingRecords" xml:space="preserve">
+    <value>Yükleniyor...</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Ay</value>
+  </data>
+  <data name="VatExcluded" xml:space="preserve">
+    <value>Kdv Hariç Tutar</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Yıl</value>
+  </data>
+  <data name="ZeroRecords" xml:space="preserve">
+    <value>Hiçbir eşleşen kayıt bulunamadı</value>
+  </data>
+  <data name="EnterStartLine" xml:space="preserve">
+    <value>Başlangıç satırı giriniz.</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>Lütfen boş alanları doldurunuz</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Select2" xml:space="preserve">
+    <value>sütununu seçiniz.</value>
+  </data>
+  <data name="SelectTemplateName" xml:space="preserve">
+    <value>Şablon Adı Seçiniz</value>
+  </data>
+  <data name="SpecifyTemplateName" xml:space="preserve">
+    <value>Şablon adı belirleyiniz.</value>
+  </data>
+  <data name="VatValue" xml:space="preserve">
+    <value>Kdv Tutarı</value>
+  </data>
+  <data name="DialogInvoice" xml:space="preserve">
+    <value>Fatura Bilgileri Ekle</value>
+  </data>
+  <data name="SelectInvoiceMonth" xml:space="preserve">
+    <value>Fatura kesim ayını seçiniz</value>
+  </data>
+  <data name="SelectInvoiceType" xml:space="preserve">
+    <value>Fatura tipini seçiniz.</value>
+  </data>
+  <data name="SelectInvoiceYear" xml:space="preserve">
+    <value>Fatura kesim yılını seçiniz</value>
+  </data>
+  <data name="ConfirmationStatus" xml:space="preserve">
+    <value>Onay Durumu</value>
+  </data>
+  <data name="EmailDetail" xml:space="preserve">
+    <value>Email Detay</value>
+  </data>
+  <data name="EmailStatus" xml:space="preserve">
+    <value>Email Durumu</value>
+  </data>
+  <data name="CurrentNumber" xml:space="preserve">
+    <value>Cari Sayısı</value>
+  </data>
+  <data name="InvoiceInformations" xml:space="preserve">
+    <value>Fatura Bilgileri</value>
+  </data>
+  <data name="SendMail" xml:space="preserve">
+    <value>Mail Gönder</value>
+  </data>
+  <data name="Delivered" xml:space="preserve">
+    <value>İletildi</value>
+  </data>
+  <data name="InvalidMail" xml:space="preserve">
+    <value>Geçersiz Mail Adresi</value>
+  </data>
+  <data name="Sent" xml:space="preserve">
+    <value>Gönderildi</value>
+  </data>
+  <data name="Spam" xml:space="preserve">
+    <value>Spam</value>
+  </data>
+  <data name="Viewed" xml:space="preserve">
+    <value>Görüntülendi</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Onaylandı</value>
+  </data>
+  <data name="NotApproved" xml:space="preserve">
+    <value>Onaylanmadı</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Beklemede</value>
+  </data>
+  <data name="Clicked" xml:space="preserve">
+    <value>Tıklandı</value>
+  </data>
+  <data name="AddReconciliationDetails" xml:space="preserve">
+    <value>Ba-Bs Mutabakat bilgileri ekle</value>
+  </data>
+  <data name="EmptyTable" xml:space="preserve">
+    <value>Kayıt bulunamadı.:(</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>İl</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Ülke</value>
+  </data>
+  <data name="FaxNumber" xml:space="preserve">
+    <value>Fax Numarası</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>İlçe</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>Kayıt başarıyla silindi.</value>
+  </data>
+  <data name="MailSent" xml:space="preserve">
+    <value>Mail başarıyla gönderildi.</value>
+  </data>
+  <data name="SavedSuccessfully" xml:space="preserve">
+    <value>Kayıt başarıyla kaydedildi.</value>
+  </data>
+  <data name="SaveProblem" xml:space="preserve">
+    <value>Kayıt işlemi sırasında bir sorun oluştu.</value>
+  </data>
+  <data name="UpdatedSuccessfully" xml:space="preserve">
+    <value>Kayıt başarıyla güncellendi.</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Şifre Değiştir</value>
+  </data>
+  <data name="OldPasswordIncorrect" xml:space="preserve">
+    <value>Girmiş olduğunuz eski şifre hatalı.</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Eski Şifre</value>
+  </data>
+  <data name="ChangedSuccesfully" xml:space="preserve">
+    <value>Şifreniz başarıyla değiştirildi.</value>
+  </data>
+  <data name="Authorized" xml:space="preserve">
+    <value>Yetkili</value>
+  </data>
+  <data name="Authorize" xml:space="preserve">
+    <value>Yetkilendir</value>
+  </data>
+  <data name="BaCreate" xml:space="preserve">
+    <value>Ba Oluştur</value>
+  </data>
+  <data name="SelectCompany" xml:space="preserve">
+    <value>Şirket seç.</value>
+  </data>
+  <data name="CompanySelectedSuccesfully" xml:space="preserve">
+    <value>Şirket başarıyla seçildi.</value>
+  </data>
+  <data name="CurrentReconciliation" xml:space="preserve">
+    <value>Cari Mutabakat</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Detay</value>
+  </data>
+  <data name="ReconciliationType" xml:space="preserve">
+    <value>Mutabakat Tipi</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Dosya</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Yükle</value>
+  </data>
+  <data name="AddBaBsExcel" xml:space="preserve">
+    <value>Oluşturduğunuz BA-BS ŞABLON ile uyumlu olan bir EXCEL dosyası yükleyiniz.</value>
+  </data>
+  <data name="AddEditCompany" xml:space="preserve">
+    <value>Lütfen şirket bilgilerini yıldızlı alanlar boş kalmayacak şekilde doldurunuz.</value>
+  </data>
+  <data name="DialogBaBs" xml:space="preserve">
+    <value>Ba-Bs Excel Yukleme</value>
+  </data>
+  <data name="DialogCompanyOperations" xml:space="preserve">
+    <value>Şirket İşlemleri</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Dosya Seç</value>
+  </data>
+  <data name="NoFile" xml:space="preserve">
+    <value>Dosya Seçilmedi</value>
+  </data>
+  <data name="DialogSubUser" xml:space="preserve">
+    <value>Alt Kullanıcı İşlemleri</value>
+  </data>
+  <data name="DialogUserOp" xml:space="preserve">
+    <value>Bilgilerimi Duzenle</value>
+  </data>
+  <data name="ShowAuthorizations" xml:space="preserve">
+    <value>Yetkileri Göster</value>
+  </data>
+  <data name="CompanyOperations" xml:space="preserve">
+    <value>Şirket İşlemleri</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Profilim</value>
+  </data>
+  <data name="WrongFileExtension" xml:space="preserve">
+    <value>Dosya uzantısı .xls veya .xlsx olmalıdır</value>
+  </data>
+  <data name="AddCurrentExcel" xml:space="preserve">
+    <value>Oluşturduğunuz CARİ BİLGİLERİ ŞABLONU ile uyumlu bir EXCEL dosyası yükleyiniz.</value>
+  </data>
+  <data name="AddCurrentReconciliationExcel" xml:space="preserve">
+    <value>Oluşturduğunuz CARİ MUTABAKAT ŞABLONU ile uyumlu bir EXCEL dosyası yükleyiniz.</value>
+  </data>
+  <data name="AddInvoiceExcel" xml:space="preserve">
+    <value>Oluşturduğunuz FATURA ŞABLONU ile uyumlu bir EXCEL dosyası yükleyiniz.</value>
+  </data>
+  <data name="AddReconciliationExcel" xml:space="preserve">
+    <value>Yüklediğiniz faturalardan mutabakat oluşturunuz..</value>
+  </data>
+  <data name="CompanyOp" xml:space="preserve">
+    <value>Şirket İşlemleri</value>
+  </data>
+  <data name="IOExeption" xml:space="preserve">
+    <value>İşlem, başka bir işlem tarafından kullanılıyor.</value>
+  </data>
+  <data name="SqlExeption" xml:space="preserve">
+    <value>Seçilen ŞABLON ve EXCEL uyuşmamaktadır.</value>
+  </data>
+  <data name="ApprovedReconciliations" xml:space="preserve">
+    <value>Onaylanan Mutabakatlar</value>
+  </data>
+  <data name="NotApprovedReconciliations" xml:space="preserve">
+    <value>Onaylanmayan Mutabakatlar</value>
+  </data>
+  <data name="PendingReconciliations" xml:space="preserve">
+    <value>Bekleyen Mutabakatlar</value>
+  </data>
+  <data name="TotalReconciliation" xml:space="preserve">
+    <value>Toplam Mutabakat</value>
+  </data>
+  <data name="LastBoughtReconciliationDate" xml:space="preserve">
+    <value>Son Ba Mutabakat Tarihi</value>
+  </data>
+  <data name="LastCurrentReconciliationDate" xml:space="preserve">
+    <value>Son Cari Mutabakat Tarihi</value>
+  </data>
+  <data name="LastSoldReconciliationDate" xml:space="preserve">
+    <value>Son Bs Mutabakat Tarihi</value>
+  </data>
+  <data name="InvalidMailChart" xml:space="preserve">
+    <value>Geçersiz</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Lütfen bir dosya seçiniz</value>
+  </data>
+  <data name="CompanyCode" xml:space="preserve">
+    <value>Firma Kodu</value>
+  </data>
+  <data name="BackToHome" xml:space="preserve">
+    <value>Anasayfaya geri dön</value>
+  </data>
+  <data name="Http404" xml:space="preserve">
+    <value>Who0ps! Sayfa bulunamadı</value>
+  </data>
+  <data name="Http404Explanation" xml:space="preserve">
+    <value>Aradığınız sayfa bulunamadı. Önceki sayfaya geri dönün veya daha fazla bilgi için Yardım Merkezimizi görüntüleyin</value>
+  </data>
+  <data name="Http400" xml:space="preserve">
+    <value>Geçersiz İstek</value>
+  </data>
+  <data name="Http400Explanation" xml:space="preserve">
+    <value>Tarayıcınız geçersiz bir istek gönderdi.</value>
+  </data>
+  <data name="Http403" xml:space="preserve">
+    <value>Yasak</value>
+  </data>
+  <data name="Http403Explanation" xml:space="preserve">
+    <value>Erişim İzniniz Bulunmamaktadır.</value>
+  </data>
+  <data name="Http500" xml:space="preserve">
+    <value>Sunucu Hatası</value>
+  </data>
+  <data name="Http500Explanation" xml:space="preserve">
+    <value>Neden sayfanızı yenilemeyi denemiyorsunuz? veya destekle iletişime geçebilirsiniz</value>
+  </data>
+  <data name="Http503" xml:space="preserve">
+    <value>Bu site bir ayarlama yapıyor.</value>
+  </data>
+  <data name="Http503Explanation" xml:space="preserve">
+    <value>Daha sonra tekrar deneyiniz.</value>
+  </data>
+  <data name="MissingCurrentInformations" xml:space="preserve">
+    <value>Cari bilgileri eksik. </value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Oluştur</value>
+  </data>
+  <data name="CreateReconciliationfromExcel" xml:space="preserve">
+    <value>Excelden Mutabakat Oluştur</value>
+  </data>
+  <data name="CreateReconciliationfromInvoice" xml:space="preserve">
+    <value>Faturadan Mutabakat Oluştur</value>
+  </data>
+  <data name="SelectInvoice" xml:space="preserve">
+    <value>Fatura seçiniz</value>
+  </data>
+  <data name="SendSms" xml:space="preserve">
+    <value>Sms Gönder</value>
+  </data>
+</root>
